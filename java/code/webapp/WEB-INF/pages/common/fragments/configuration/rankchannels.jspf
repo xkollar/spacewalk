@@ -18,25 +18,9 @@
             <button type="button" class="btn btn-default" value="up" name="dispatch" onclick="return config_channel_up('ranksWidget');">
                 <i class="icon-circle-arrow-up"></i>
             </button>
-        <%--
-        <html:image src="/img/button-up.gif"
-                    altKey="ssm.config.rank.jsp.up"
-                    property="dispatch"
-                    value="up"
-                    onclick="return config_channel_up('ranksWidget');"
-                    styleClass="button"/>
-        --%>
             <button type="button" class="btn btn-default" value="down" name="dispatch" onclick="return config_channel_down('ranksWidget');">
                 <i class="icon-circle-arrow-down"></i>
             </button>
-        <%--
-        <html:image src="/img/button-down.gif"
-                    altKey="ssm.config.rank.jsp.down"
-                    property="dispatch"
-                    value="down"
-                    onclick="return config_channel_down('ranksWidget');"
-                    styleClass="button"/>
-        --%>
         </div>
     </div>
 </div>
