@@ -6,7 +6,6 @@
 <html:xhtml/>
 <html>
 <head>
-<script src="/javascript/prototype.js" type="text/javascript"> </script>
 <script src="/javascript/config_channel_ranks.js" type="text/javascript"> </script>
 </head>
 <body>
