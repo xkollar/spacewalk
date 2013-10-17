@@ -6,7 +6,7 @@
 
 <html:html xhtml="true">
 <body>
-<rhn:toolbar base="h1" img="/img/rhn-kickstart_profile.gif"
+<rhn:toolbar base="h1" icon="icon-rocket"
                creationUrl="/rhn/kickstart/KickstartScriptCreate.do?ksid=${ksdata.id}"
                creationType="kickstartscript"
                imgAlt="kickstarts.alt.img">
