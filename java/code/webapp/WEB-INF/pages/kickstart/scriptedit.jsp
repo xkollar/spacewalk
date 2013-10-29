@@ -17,7 +17,7 @@
     renderer="com.redhat.rhn.frontend.nav.DialognavRenderer" />
 
 <p>
-<rhn:toolbar base="h2" icon="icon-rocket"
+<rhn:toolbar base="h2" icon="fa-rocket"
     deletionUrl="/rhn/kickstart/KickstartScriptDelete.do?kssid=${kssid}&ksid=${ksdata.id}"
     deletionType="kickstartscript" >
 <bean:message key="kickstart.script.header1"/>
