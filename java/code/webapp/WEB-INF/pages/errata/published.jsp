@@ -9,7 +9,7 @@
     <meta name="page-decorator" content="none" />
 </head>
 <body>
-<rhn:toolbar base="h1" img="/img/rhn-icon-errata.gif"
+<rhn:toolbar base="h1" icon="spacewalk-icon-patches"
  helpUrl="/rhn/help/channel-mgmt/en-US/channel-mgmt-Custom_Errata_Management.jsp#channel-mgmt-Manage_Errata-Published_Errata"
  creationUrl="/rhn/errata/manage/Create.do"
  creationType="erratum">

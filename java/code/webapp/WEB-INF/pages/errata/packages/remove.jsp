@@ -9,7 +9,7 @@
     <meta name="page-decorator" content="none" />
 </head>
 <body>
-<rhn:toolbar base="h1" img="/img/rhn-icon-errata.gif"
+<rhn:toolbar base="h1" icon="spacewalk-icon-patches"
 	           helpUrl="/rhn/help/channel-mgmt/en-US/channel-mgmt-Custom_Errata_Management-Managed_Errata_Details.jsp">
     <bean:message key="errata.edit.toolbar"/> <c:out value="${advisory}" />
   </rhn:toolbar>
@@ -17,7 +17,7 @@
   <rhn:dialogmenu mindepth="0" maxdepth="1" definition="/WEB-INF/nav/manage_errata.xml"
                   renderer="com.redhat.rhn.frontend.nav.DialognavRenderer" />
 
-  <h2><img src="/img/rhn-icon-packages.gif">
+  <h2><i class="fa spacewalk-icon-packages"></i>
       <bean:message key="errata.edit.packages.confirm.confirmpackageremoval"/></h2>
 
   <p><bean:message key="errata.edit.packages.confirm.remove.instructions"/></p>
