@@ -23,7 +23,6 @@ import java.io.IOException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
-import org.apache.commons.lang.StringUtils;
 
 /**
  * <strong>AddressTag</strong>
@@ -164,55 +163,56 @@ public class AddressTag extends TagSupport {
             StringBuilder result = new StringBuilder();
             StringBuilder key = new StringBuilder("address type ");
             key.append(type);
-            result.append("<strong>");
+            result.append("<div class=\"mail-address-border\">");
+            result.append("<div class=\"container\">");
+            result.append("<h1>");
             result.append(ls.getMessage(key.toString()));
-            result.append("</strong>");
+            result.append("</h1>");
             if (user == null) {
                 throw new IllegalArgumentException("User is null");
             }
 
             // If this Address is new
             if (address != null &&
-                StringUtils.isNotBlank(address.getCity()) &&
-                StringUtils.isNotBlank(address.getZip())) {
-                result.append("<address>");
-                // Address 1 and 2
-                result.append(address.getAddress1());
-                result.append("<br>");
-                if (StringUtils.isNotBlank(address.getAddress2())) {
-                    result.append(address.getAddress2());
-                    result.append("<br>");
-                }
+                address.getCity() != null &&
+                address.getZip() != null) {
 
-                // City
+                // Address 1 and 2
+                result.append("<p>");
+                result.append(address.getAddress1());
+                if (address.getAddress2() != null) {
+                    result.append("<br/>");
+                    result.append(address.getAddress2());
+                }
+                result.append("<br/>");
+
+                // Sity
                 result.append(address.getCity());
-                if (StringUtils.isNotBlank(address.getState())) {
+                if (address.getState() != null) {
                     result.append(", ");
                     result.append(address.getState());
                 }
-
                 result.append(" ");
                 result.append(address.getZip());
-                result.append("<br>");
+                result.append("</p>");
 
                 // Phones
+                result.append("<p>");
                 result.append(ls.getMessage("phone"));
                 result.append(": ");
                 result.append(address.getPhone());
-                result.append("<br>");
-                if (StringUtils.isNotBlank(address.getFax())) {
-                    result.append(ls.getMessage("fax"));
-                    result.append(": ");
+                result.append("<br/>");
+                result.append(ls.getMessage("fax"));
+                result.append(": ");
+                if (address.getFax() != null) {
                     result.append(address.getFax());
-                    result.append("<br>");
                 }
-
-                result.append("</address>");
+                result.append("</p>");
 
                 result.append("<p>");
                 result.append("<a ")
-                      .append("class=\"btn btn-primary\"")
-                      .append(" href=\"")
+                      .append("class=\"btn btn-success btn-lg\"")
+                      .append("href=\"")
                       .append(getActionUrl())
                       .append("/EditAddress.do?type=")
                       .append(type)
@@ -229,7 +229,7 @@ public class AddressTag extends TagSupport {
                 result.append("</div>");
                 result.append("<p>");
                 result.append("<a ")
-                      .append("class=\"btn btn-primary\"")
+                      .append("class=\"btn btn-success btn-lg\"")
                       .append(" href=\"")
                       .append(getActionUrl())
                       .append("/EditAddress.do?type=")
@@ -241,6 +241,8 @@ public class AddressTag extends TagSupport {
                       .append("</a>");
                 result.append("</p>");
             }
+            result.append("</div>");
+            result.append("</div>");
 
             out.print(result);
         }
