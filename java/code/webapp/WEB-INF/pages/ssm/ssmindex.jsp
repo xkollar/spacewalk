@@ -24,7 +24,7 @@
         <bean:message key="ssm.overview.systems.list"/>
     </div>
     <div class="panel-heading">
-        <i class="fa spacewalk-icon-patches fa-fw" title="Errata"></i>
+        <i class="fa spacewalk-icon-patches fa-fw" title="<bean:message key="ssm.overview.errata"/>"></i>
         <bean:message key="ssm.overview.errata"/>
     </div>
     <div class="panel-body">
