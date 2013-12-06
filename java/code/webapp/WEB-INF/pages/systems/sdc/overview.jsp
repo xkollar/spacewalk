@@ -88,10 +88,8 @@
       </c:if>
     </div>
   </div>
-
   <div class="row-0">
     <div class="col-md-6">
-
       <!-- System Info box -->
       <div class="panel panel-default">
         <div class="panel-heading">
