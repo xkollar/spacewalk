@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:if test="${errata.securityAdvisory}">
-     <rhn:toolbar base="h1" icon="fa-lock"
+     <rhn:toolbar base="h1" icon="fa-shield"
      						iconAlt="errata-legend.jsp.security"
 						helpUrl="/rhn/help/reference/en-US/s1-sm-errata.jsp#s3-sm-errata-details">
 	   <c:if test="${empty errata}">

@@ -82,7 +82,7 @@
 		  <rl:column headerkey="erratalist.jsp.type" styleclass="text-align: center;"
 		  	bound="false">
 		      <c:if test="${current.securityAdvisory}">
-		        <i class="fa fa-lock"></i>
+		        <i class="fa fa-shield"></i>
 		      </c:if>
 		      <c:if test="${current.bugFix}">
 		        <i class="fa fa-bug"></i>

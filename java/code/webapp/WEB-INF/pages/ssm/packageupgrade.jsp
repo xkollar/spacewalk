@@ -53,7 +53,7 @@
         <rl:column headerkey="ssm.package.upgrade.select.advisory" bound="false">
             <c:if test="${not empty current.advisory}">
               <c:if test="${current.advisoryType == 'Security Advisory'}">
-                <i class="fa fa-lock" title="<bean:message key='erratalist.jsp.securityadvisory' />"></i>
+                <i class="fa fa-shield" title="<bean:message key='erratalist.jsp.securityadvisory' />"></i>
               </c:if>
               <c:if test="${current.advisoryType == 'Bug Fix Advisory'}">
                 <i class="fa fa-bug" title="<bean:message key='erratalist.jsp.bugadvisory' />"></i>

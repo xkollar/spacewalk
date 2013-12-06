@@ -82,7 +82,7 @@
                 </div>
                 <div class="checkbox">
                 <html:checkbox property="errata_type_security">
-                    <i class="fa fa-lock"></i>
+                    <i class="fa fa-shield"></i>
                     <bean:message key="erratalist.jsp.securityadvisory"/>
                 </html:checkbox>
                 </div>
@@ -167,7 +167,7 @@
       <rl:column bound="false" sortable="true" sortattr="securityAdvisory"
         headerkey="erratalist.jsp.type">
 		<c:if test="${current.securityAdvisory}">
-		  <i class="fa fa-lock"></i>
+		  <i class="fa fa-shield"></i>
 		</c:if>
 		<c:if test="${current.bugFix}">
 		  <i class="fa fa-bug"></i>

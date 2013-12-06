@@ -36,7 +36,7 @@
 									<td>${enhance_count}</td>
 							</tr>
 							<tr>
-									<th><i class="fa fa-lock" title="<bean:message key='erratalist.jsp.securityadvisory'/>"></i>
+									<th><i class="fa fa-shield" title="<bean:message key='erratalist.jsp.securityadvisory'/>"></i>
 										Security Advisory:
 									</th>
 									<td>${secure_count}</td>

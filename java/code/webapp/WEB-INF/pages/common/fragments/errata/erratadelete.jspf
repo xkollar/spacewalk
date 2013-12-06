@@ -2,7 +2,7 @@
   <rhn:listdisplay button="deleteconfirm.jsp.confirm">
     <rhn:column header="erratalist.jsp.type">
         <c:if test="${current.securityAdvisory}">
-            <i class="fa fa-lock"></i>
+            <i class="fa fa-shield"></i>
         </c:if>
         <c:if test="${current.bugFix}">
             <i class="fa fa-bug"></i>

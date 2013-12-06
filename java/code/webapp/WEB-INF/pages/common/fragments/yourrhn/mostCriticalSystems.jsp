@@ -32,7 +32,7 @@
 
    		<rl:column headerkey="yourrhn.jsp.criticalsystems.securityerrata"
     			headerclass="row-2 text-align: center;">
-   			<i class="fa fa-lock" title="<bean:message key='errata-legend.jsp.security'/>"></i>${current.securityErrata}
+   			<i class="fa fa-shield" title="<bean:message key='errata-legend.jsp.security'/>"></i>${current.securityErrata}
     	</rl:column>
 
     	<rl:column headerkey="yourrhn.jsp.criticalsystems.bugfixerrata"

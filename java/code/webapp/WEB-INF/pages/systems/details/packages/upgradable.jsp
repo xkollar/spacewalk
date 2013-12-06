@@ -53,7 +53,7 @@
       <c:forEach items="${current.errata}" var="errata">
         <c:if test="${not empty errata.advisory}">
           <c:if test="${errata.type == 'Security Advisory'}">
-            <i class="fa fa-lock" title="<bean:message key='erratalist.jsp.securityadvisory' />"></i>
+            <i class="fa fa-shield" title="<bean:message key='erratalist.jsp.securityadvisory' />"></i>
           </c:if>
           <c:if test="${errata.type == 'Bug Fix Advisory'}">
             <i class="fa fa-bug" title="<bean:message key='erratalist.jsp.bugadvisory' />"></i>
