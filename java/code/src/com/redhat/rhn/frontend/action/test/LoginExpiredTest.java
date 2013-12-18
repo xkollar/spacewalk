@@ -17,20 +17,23 @@ package com.redhat.rhn.frontend.action.test;
 import com.redhat.rhn.manager.satellite.test.CertificateManagerTest;
 import com.redhat.rhn.testing.RhnMockStrutsTestCase;
 
+import servletunit.HttpServletRequestSimulator;
+
 
 /**
- * LoginExpiredSatTestCase
+ * LoginExpiredTest
  * @version $Rev$
  */
-public class LoginExpiredSatTestCase extends RhnMockStrutsTestCase {
+public class LoginExpiredTest extends RhnMockStrutsTestCase {
 
     public void testExpiredSatCert() throws Exception {
         CertificateManagerTest.expireSatelliteCertificate();
 
         setRequestPathInfo("/LoginSubmit");
+        request.setMethod(HttpServletRequestSimulator.POST);
         actionPerform();
         verifyActionMessage("satellite.expired");
-        assertEquals("/WEB-INF/pages/common/login.jsp", getActualForward());
+        assertEquals("/WEB-INF/pages/common/relogin.jsp", getActualForward());
     }
 
 }

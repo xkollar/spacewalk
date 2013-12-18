@@ -15,16 +15,16 @@
                  emptykey="yourrhn.jsp.systemgroups.none">
 
         	<rl:column headerkey="grouplist.jsp.status">
-            	<a href="/network/systems/groups/errata_list.pxt?sgid=${current.id}">
+                <a href="/rhn/groups/ListErrata.do?sgid=${current.id}">
 		      		<c:choose>
                                         <c:when test="${current.mostSevereErrata == 'Security Advisory'}">
-				<i class="fa fa-exclamation-triangle fa-1-5x text-danger" title="<bean:message key='grouplist.jsp.security'/>"></i>
+                                        <rhn:icon type="system-crit" title="<bean:message key='grouplist.jsp.security' />" />
 	        			</c:when>
                                         <c:when test="${current.mostSevereErrata == 'Bug Fix Advisory' or current.mostSevereErrata == 'Product Enhancement Advisory'}">
-					<i class="fa fa-exclamation-circle fa-1-5x text-warning" title="<bean:message key='grouplist.jsp.updates'/>"></i>
+                                        <rhn:icon type="system-warn" title="<bean:message key='grouplist.jsp.updates' />" />
 	    	    		</c:when>
 	        			<c:otherwise>
-	          			<i class="fa fa-check-circle fa-1-5x text-success" title="<bean:message key='grouplist.jsp.noerrata'/>"></i>
+                                        <rhn:icon type="system-ok" title="<bean:message key='grouplist.jsp.noerrata'/>" />
 		        		</c:otherwise>
 	   				</c:choose>
 	   			</a>
@@ -33,19 +33,19 @@
         	<%@ include file="/WEB-INF/pages/common/fragments/systems/monitoring_status_groups.jspf" %>
 
 			<rl:column headerkey="yourrhn.jsp.systemgroups">
-                <a href="/network/systems/groups/details.pxt?sgid=${current.id}">
+                <a href="/rhn/groups/GroupDetail.do?sgid=${current.id}">
                 <c:out value="${current.name}"/></a>
             </rl:column>
 
         	<rl:column headerkey="grouplist.jsp.systems">
-                <a href="/network/systems/groups/details.pxt?sgid=${current.id}">
+                <a href="/rhn/groups/GroupDetail.do?sgid=${current.id}">
                 <c:out value="${current.serverCount}"/></a>
         	</rl:column>
 
   		</rl:list>
 
 		  <a href="/rhn/systems/SystemGroupList.do">
-  			<div class="btn btn-default spacewalk-btn-margin-vertical"><i class="spacewalk-icon-system-groups"></i><bean:message key="yourrhn.jsp.allgroups" /></div>
+                        <div class="btn btn-default spacewalk-btn-margin-vertical"><rhn:icon type="header-system-groups" /><bean:message key="yourrhn.jsp.allgroups" /></div>
   		</a>
 
 	</rl:listset>

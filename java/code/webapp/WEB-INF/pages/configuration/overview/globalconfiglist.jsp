@@ -9,7 +9,7 @@
     <meta name="page-decorator" content="none" />
 </head>
 <body>
-<rhn:toolbar base="h1" icon="spacewalk-icon-Software-Channel-Management"
+<rhn:toolbar base="h1" icon="header-channel-configuration"
  helpUrl="/rhn/help/reference/en-US/s1-sm-configuration.jsp#configuration-files-central"
  creationUrl="/rhn/configuration/ChannelCreate.do?editing=true"
  creationType="configchannel"
@@ -29,7 +29,7 @@
     <rhn:listdisplay filterBy="globalconfiglist.jsp.name">
       <rhn:column header="globalconfiglist.jsp.name"
                   url="/rhn/configuration/ChannelOverview.do?ccid=${current.id}">
-        <i class="spacewalk-icon-software-channels" title="<bean:message key='config.common.globalAlt'/>"></i>
+        <rhn:icon type="header-channel" title="<bean:message key='config.common.globalAlt' />" />
         ${current.name}
       </rhn:column>
 

@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<rhn:toolbar base="h1" icon="fa-cog" imgAlt="config.jsp.imgAlt"
+<rhn:toolbar base="h1" icon="header-configuration" imgAlt="config.jsp.imgAlt"
  helpUrl="/rhn/help/reference/en-US/s1-sm-configuration.jsp#configuration-overview" >
   <bean:message key="configoverview.jsp.toolbar"/>
 </rhn:toolbar>
@@ -50,15 +50,15 @@
                       url="/rhn/configuration/file/FileDetails.do?cfid=${current.id}">
             <c:choose>
               <c:when test="${current.type == 'file'}">
-                <i class="fa fa-file-text-o"></i>
+                <rhn:icon type="header-file" />
                 ${fn:escapeXml(current.path)}
               </c:when>
               <c:when test="${current.type == 'directory'}">
-                <i class="fa fa-folder"></i>
+                <rhn:icon type="header-folder" />
                 ${fn:escapeXml(current.path)}
               </c:when>
               <c:otherwise>
-                <i class="fa fa-list-alt"></i>
+                <rhn:icon type="header-symlink" />
                 ${fn:escapeXml(current.path)}
               </c:otherwise>
             </c:choose>
@@ -68,17 +68,17 @@
                       url="/rhn/configuration/ChannelOverview.do?ccid=${current.configChannelId}">
 
             <c:if test="${current.configChannelType == 'normal'}">
-          	  <i class="spacewalk-icon-software-channels"></i>
+              <rhn:icon type="header-channel" />
               ${current.channelNameDisplay}
             </c:if>
 
             <c:if test="${current.configChannelType == 'local_override'}">
-              <i class="fa fa-desktop"></i>
+              <rhn:icon type="header-system" />
               ${current.channelNameDisplay}
             </c:if>
 
             <c:if test="${current.configChannelType == 'server_import'}">
-              <i class="fa fa-flask"></i>
+              <rhn:icon type="header-sandbox" />
               ${current.channelNameDisplay}
             </c:if>
 
@@ -102,7 +102,7 @@
         <rhn:listdisplay>
           <rhn:column header="configoverview.jsp.system"
                       url="/rhn/systems/details/configuration/Overview.do?sid=${current.serverId}">
-            <i class="fa fa-desktop"></i>
+            <rhn:icon type="header-system-physical" />
             ${fn:escapeXml(current.serverName)}
           </rhn:column>
 
@@ -118,7 +118,7 @@
           <rhn:column header="configoverview.jsp.scheduledBy"
                       url="/rhn/users/UserDetails.do?uid=${current.scheduledById}"
                       renderUrl="${requestScope.is_admin}">
-            <i class="fa fa-user" title="<bean:message key="user.common.userAlt" />"></i>
+            <rhn:icon type="header-user" title="<bean:message key='user.common.userAlt' />" />
             ${fn:escapeXml(current.scheduledByName)}
           </rhn:column>
 

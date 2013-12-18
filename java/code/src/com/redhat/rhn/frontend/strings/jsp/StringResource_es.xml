@@ -5054,8 +5054,8 @@ para este derecho, excluyendo el consumo de la organización predeterminada.</ta
           <target>Erratas</target>
         </trans-unit>
         <trans-unit id="ssm.overview.errata.schedule">
-          <source>&lt;a href="/network/systems/ssm/errata/index.pxt?pxt:trap=rhn:empty_set&amp;set_label=errata_list"&gt;Schedule errata updates&lt;/a&gt; relevant to selected systems</source>
-          <target>&lt;a href="/network/systems/ssm/errata/index.pxt?pxt:trap=rhn:empty_set&amp;set_label=errata_list"&gt;Programar actualización de erratas&lt;/a&gt; relevantes a sistemas seleccionados</target>
+          <source>&lt;a href="/rhn/systems/ssm/ListPatches.do"&gt;Schedule errata updates&lt;/a&gt; relevant to selected systems</source>
+          <target>&lt;a href="/rhn/systems/ssm/ListPatches.do"&gt;Programar actualización de erratas&lt;/a&gt; relevantes a sistemas seleccionados</target>
         </trans-unit>
         <trans-unit id="ssm.overview.packages">
           <source>Packages</source>
@@ -6059,7 +6059,7 @@ para este derecho, excluyendo el consumo de la organización predeterminada.</ta
       </group>
       <group>
         <context-group name="ctx">
-          <context context-type="sourcefile">/rhn/groups/CreateGroup.do</context>
+          <context context-type="sourcefile">/rhn/groups/EditGroup.do</context>
         </context-group>
         <trans-unit id="systemgroup.create.header">
           <source>Create System Group</source>

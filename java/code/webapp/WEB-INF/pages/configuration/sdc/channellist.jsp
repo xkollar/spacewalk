@@ -12,9 +12,9 @@
 <body>
 <%@ include file="/WEB-INF/pages/common/fragments/systems/system-header.jspf" %>
 
-<h2><img src="${cfg:channelHeaderIcon('central')}"
-					alt="${cfg:channelAlt('central')}"/>
-<bean:message key="sdc.configlist.jsp.header"/></h2>
+<rhn:toolbar base="h2" icon="header-channel-configuration">
+  <bean:message key="sdc.configlist.jsp.header"/>
+</rhn:toolbar>
   <div class="page-summary">
     <p><bean:message key="sdc.configlist.jsp.para1"/></p>
   </div>
@@ -30,7 +30,7 @@
 	  <rhn:set value="${current.id}"/>
       <rhn:column header="sdc.configlist.jsp.name"
                   url="/rhn/configuration/ChannelOverview.do?ccid=${current.id}">
-        <i class="fa spacewalk-icon-software-channels" title="<bean:message key="config.common.globalAlt" />"></i>
+        <rhn:icon type="header-channel" title="<bean:message key='config.common.globalAlt' />" />
         ${current.name}
       </rhn:column>
 

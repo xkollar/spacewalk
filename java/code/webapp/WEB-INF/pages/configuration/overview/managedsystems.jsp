@@ -9,7 +9,7 @@
     <meta name="page-decorator" content="none" />
 </head>
 <body>
-<rhn:toolbar base="h1" icon="fa-desktop"
+<rhn:toolbar base="h1" icon="header-system"
  helpUrl="/rhn/help/reference/en-US/s1-sm-configuration.jsp#config-systems" >
   <bean:message key="managedsystems.jsp.toolbar"/>
 </rhn:toolbar>
@@ -27,7 +27,7 @@
     <rhn:listdisplay filterBy="system.common.systemName">
       <rhn:column header="system.common.systemName"
                   url="/rhn/systems/details/configuration/Overview.do?sid=${current.id}">
-        <i class="fa fa-desktop" title="<bean:message key='system.common.systemAlt' />"></i>
+        <rhn:icon type="header-system-physical" title="<bean:message key='system.common.systemAlt' />" />
         <c:out value="${current.name}" />
       </rhn:column>
 

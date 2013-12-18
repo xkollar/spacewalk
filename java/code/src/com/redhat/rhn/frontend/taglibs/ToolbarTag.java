@@ -551,20 +551,11 @@ public class ToolbarTag extends TagSupport {
             tag.setAttribute("href", getHelpUrl());
             tag.setAttribute("target", "_blank");
 
-            HtmlTag stack = new HtmlTag("span");
-            stack.setAttribute("class", "fa-stack");
+            HtmlTag help = new HtmlTag("i");
+            help.setAttribute("class", "fa fa-question-circle");
 
-            HtmlTag iBack = new HtmlTag("i");
-            iBack.setAttribute("class", "fa fa-circle fa-stack-1x");
-            HtmlTag iFront = new HtmlTag("i");
-            iFront.setAttribute("class", "fa fa-question fa-stack-1x fa-inverse");
-
-            stack.addBody(iBack.renderOpenTag());
-            stack.addBody(iBack.renderCloseTag());
-            stack.addBody(iFront.renderOpenTag());
-            stack.addBody(iFront.renderCloseTag());
-
-            tag.addBody(stack);
+            tag.addBody(help.renderOpenTag());
+            tag.addBody(help.renderCloseTag());
             return tag.render();
         }
         return "";
@@ -586,10 +577,13 @@ public class ToolbarTag extends TagSupport {
 
     private String renderIcon() {
         if (assertNotEmpty(getIcon())) {
-            HtmlTag tag = new HtmlTag("i");
-            tag.setAttribute("class", "fa " + getIcon());
-            tag.addBody(" ");
-            return tag.render();
+            IconTag i = new IconTag();
+            i.setPageContext(pageContext);
+            i.setParent(getParent());
+            i.setType(getIcon());
+            String result = i.renderStartTag();
+            i.release();
+            return result;
         }
         return "";
     }
@@ -600,7 +594,7 @@ public class ToolbarTag extends TagSupport {
 
             String create = "toolbar.create." + getCreationType();
             return renderActionLink(getCreationUrl(), create,
-                                    create, "fa-plus", null);
+                                    create, "item-add", null);
         }
         return "";
     }
@@ -611,7 +605,7 @@ public class ToolbarTag extends TagSupport {
 
             String clone = "toolbar.clone." + getCloneType();
             return renderActionLink(getCloneUrl(), clone,
-                                    clone, "fa-files-o", null);
+                                    clone, "item-clone", null);
         }
         return "";
     }
@@ -621,7 +615,7 @@ public class ToolbarTag extends TagSupport {
                 assertNotEmpty(getDeletionUrl())) {
 
             String del = "toolbar.delete." + getDeletionType();
-            return renderActionLink(getDeletionUrl(), del, del, "fa-trash-o", null);
+            return renderActionLink(getDeletionUrl(), del, del, "item-del", null);
         }
         return "";
     }
@@ -631,7 +625,7 @@ public class ToolbarTag extends TagSupport {
                 assertNotEmpty(getUploadUrl())) {
 
             String del = "toolbar.upload." + getUploadType();
-            return renderActionLink(getUploadUrl(), del, del, "fa-upload", null);
+            return renderActionLink(getUploadUrl(), del, del, "item-upload", null);
         }
         return "";
     }
@@ -672,14 +666,12 @@ public class ToolbarTag extends TagSupport {
         }
 
         if (assertNotEmpty(iconName)) {
-            HtmlTag i = new HtmlTag("i");
-            i.setAttribute("class", "fa " + iconName);
-            // Research should be done if would't be better to
-            // use a sr-only div (Screeen-Reader only) instead of
-            // title.
-            i.setAttribute("title", alt);
-            a.addBody(i.renderOpenTag());
-            a.addBody(i.renderCloseTag());
+            IconTag i = new IconTag();
+            i.setPageContext(pageContext);
+            i.setParent(getParent());
+            i.setType(iconName);
+            a.addBody(i.renderStartTag());
+            i.release();
         }
 
         a.addBody(text);

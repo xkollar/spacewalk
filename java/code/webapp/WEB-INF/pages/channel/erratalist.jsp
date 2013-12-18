@@ -9,7 +9,7 @@
 <body>
 <%@ include file="/WEB-INF/pages/common/fragments/channel/channel_header.jspf" %>
 
-  <h2><i class="spacewalk-icon-patches"></i> <bean:message key="header.jsp.errata"/></h2>
+  <h2><rhn:icon type="header-errata" /> <bean:message key="header.jsp.errata"/></h2>
     <bean:message key="channel.jsp.errata.listtitle"/>
 
     <rl:listset name="errataSet">
@@ -29,13 +29,13 @@
                            headerkey="erratalist.jsp.type">
 
 							<c:if test="${current.securityAdvisory}">
-					            <i class="fa fa-lock" title="<bean:message key='erratalist.jsp.securityadvisory' />"></i>
+					            <rhn:icon type="errata-security" title="<bean:message key='erratalist.jsp.securityadvisory' />" />
 					        </c:if>
 					        <c:if test="${current.bugFix}">
-					            <i class="fa fa-bug" title="<bean:message key='erratalist.jsp.bugadvisory' />"></i>
+					            <rhn:icon type="errata-bugfix" title="<bean:message key='erratalist.jsp.bugadvisory' />" />
 					        </c:if>
 					        <c:if test="${current.productEnhancement}">
-					            <i class="fa  spacewalk-icon-enhancement" title="<bean:message key='erratalist.jsp.productenhancementadvisory' />"></i>
+					            <rhn:icon type="errata-enhance" title="<bean:message key='erratalist.jsp.productenhancementadvisory' />" />
 					        </c:if>
 
                 </rl:column>

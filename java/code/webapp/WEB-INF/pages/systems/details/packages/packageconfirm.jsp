@@ -11,7 +11,7 @@
 
 <%@ include file="/WEB-INF/pages/common/fragments/systems/system-header.jspf" %>
     <h2>
-      <i class="fa spacewalk-icon-packages"></i>
+      <rhn:icon type="header-package" />
       <bean:message key="${requestScope.header}" />
     </h2>
     <rhn:systemtimemessage server="${requestScope.system}" />
@@ -53,7 +53,7 @@
             <th><bean:message key="confirm.jsp.than"/></th>
           </tr>
           <tr>
-            <th><i class="fa spacewalk-icon-schedule" title="<bean:message key='confirm.jsp.selection'/>"></i>
+            <th><rhn:icon type="header-schedule" title="<bean:message key='confirm.jsp.selection' />" />
             </th>
             <td>
               <jsp:include page="/WEB-INF/pages/common/fragments/date-picker.jsp">

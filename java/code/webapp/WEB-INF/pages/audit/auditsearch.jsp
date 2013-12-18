@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<rhn:toolbar base="h1" icon="fa-desktop"
+<rhn:toolbar base="h1" icon="header-system"
  helpUrl="/rhn/help/reference/en-US/s2-sm-system-overview.jsp">
   <bean:message key="auditsearch.jsp.header"/>
 </rhn:toolbar>
@@ -83,7 +83,7 @@
         <rhn:submitted />
         <div class="text-right form-group">
             <button type="submit" class="btn btn-success">
-                <i class="fa fa-search"></i>
+                <rhn:icon type="header-search" />
                 <bean:message key="button.search"/>
             </button>
         </div>
@@ -173,7 +173,7 @@
         </div>
         <div class="text-right">
             <button type="submit" class="btn btn-success">
-                <i class="fa fa-search"></i>
+                <rhn:icon type="header-search" />
                 <bean:message key="button.search"/>
             </button>
         </div>

@@ -16,11 +16,11 @@
   <div class="toolbar">
     <span class="toolbar">
       <a href="/rhn/systems/details/DeleteCustomData.do?sid=${sid}&cikid=${cikid}">
-        <i class="fa fa-trash-o" title="delete value"></i>delete value
+        <rhn:icon type="item-del" title="delete value" />delete value
       </a>
     </span>
   </div>
-  <i class="fa fa-info-circle"></i>
+  <rhn:icon type="header-info" />
   <bean:message key="system.jsp.customkey.updatetitle"/>
 </div>
 

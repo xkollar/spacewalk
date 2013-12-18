@@ -7,7 +7,7 @@
 
 <html>
 <body>
-<rhn:toolbar base="h1" icon="spacewalk-icon-manage-configuration-file"
+<rhn:toolbar base="h1" icon="header-configuration"
  helpUrl="/rhn/help/reference/en-US/s1-sm-configuration.jsp#configuration-files-local">
   <bean:message key="localfilelist.jsp.toolbar"/>
 </rhn:toolbar>
@@ -28,7 +28,7 @@
 
       <rhn:column header="localfilelist.jsp.system"
                   url="/rhn/systems/details/configuration/Overview.do?sid=${current.serverId}">
-    	  <i class="fa fa-desktop" title="<bean:message key='system.common.systemAlt' />"></i>
+         <rhn:icon type="header-system-physical" title="<bean:message key='system.common.systemAlt' />" />
     	  ${current.serverName}
       </rhn:column>
     </rhn:listdisplay>

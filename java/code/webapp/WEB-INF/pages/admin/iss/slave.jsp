@@ -5,7 +5,7 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <html:html>
     <body>
-        <rhn:toolbar base="h1" icon="fa-info-circle"
+        <rhn:toolbar base="h1" icon="header-info"
                      creationUrl="/rhn/admin/iss/EditMaster.do" creationType="master"
                      creationAcl="user_role(satellite_admin)">
             <bean:message key="iss.slave.jsp.toolbar" />
@@ -32,10 +32,10 @@
                 <rl:column bound="false" headerkey="iss.master.isDefault"
                            styleclass="center" headerclass="center">
                     <c:if test="${current.defaultMaster}">
-                        <i class="fa fa-check text-success" title="<bean:message key='iss.master.isDefault'/>"></i>
+                        <rhn:icon type="item-enabled" title="<bean:message key='iss.master.isDefault' />" />
                     </c:if>
                     <c:if test="${not current.defaultMaster}">
-                        <i class="fa fa-circle-o" title="<bean:message key='iss.master.notDefault'/>"></i>
+                        <rhn:icon type="item-disabled" title="<bean:message key='iss.master.notDefault' />" />
                     </c:if>
                 </rl:column>
                 <rl:column headerkey="iss.num.master.orgs" styleclass="center" headerclass="center">

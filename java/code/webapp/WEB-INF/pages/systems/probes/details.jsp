@@ -12,7 +12,7 @@
         <%@ include file="/WEB-INF/pages/common/fragments/systems/system-header.jspf" %>
 
         <c:if test="${is_suite_probe}">
-            <rhn:toolbar base="h2" icon="fa-desktop"
+            <rhn:toolbar base="h2" icon="header-system"
                          miscAlt="probedetails.jsp.editsuiteprobe"
                          miscIcon="fa-copy"
                          miscUrl="/rhn/monitoring/config/ProbeSuiteProbeEdit.do?suite_id=${probe.templateProbe.probeSuite.id}&amp;probe_id=${probe.templateProbe.id}"
@@ -23,7 +23,7 @@
             </rhn:toolbar>
         </c:if>
         <c:if test="${not is_suite_probe}">
-            <rhn:toolbar base="h2" icon="fa-desktop"
+            <rhn:toolbar base="h2" icon="header-system"
                          deletionUrl="/rhn/systems/details/probes/ProbeDelete.do?probe_id=${probe.id}&amp;sid=${system.id}"
                          deletionType="probe"
                          miscAlt="probedetails.jsp.editthisprobe"
@@ -126,7 +126,7 @@
         <c:if test="${requestScope.show_graph}">
             <h2><bean:message key="probedetails.jsp.graph"/></h2>
             <img src="/rhn/systems/details/probes/ProbeGraph.do?${requestScope.l10ned_selected_metrics_string}${requestScope.selected_metrics_string}startts=${requestScope.startts}&amp;endts=${requestScope.endts}&amp;sid=${system.id}&amp;probe_id=${probe.id}"/>
-            <br><a href="/rhn/systems/details/probes/ProbeGraph.do?lde=1&${requestScope.l10ned_selected_metrics_string}${requestScope.selected_metrics_string}startts=${requestScope.startts}&amp;endts=${requestScope.endts}&amp;sid=${system.id}&amp;probe_id=${probe.id}"><i class="fa spacewalk-icon-download-csv text-primary" title=""></i><bean:message key="listdisplay.csv"/></a>
+            <br><a href="/rhn/systems/details/probes/ProbeGraph.do?lde=1&${requestScope.l10ned_selected_metrics_string}${requestScope.selected_metrics_string}startts=${requestScope.startts}&amp;endts=${requestScope.endts}&amp;sid=${system.id}&amp;probe_id=${probe.id}"><rhn:icon type="item-download-csv" title="" /><bean:message key="listdisplay.csv"/></a>
             </c:if>
             <c:if test="${requestScope.show_log}">
             <h2><bean:message key="probedetails.jsp.eventlog"/></h2>

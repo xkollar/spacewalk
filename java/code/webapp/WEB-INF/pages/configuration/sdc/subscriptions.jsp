@@ -11,9 +11,9 @@
 <body>
 <%@ include file="/WEB-INF/pages/common/fragments/systems/system-header.jspf" %>
 
-<h2> <img src="${cfg:channelHeaderIcon('central')}"
-					alt="${cfg:channelAlt('central')}"/>
-			<bean:message key="sdc.config.subscriptions.jsp.header"/></h2>
+<rhn:toolbar base="h2" icon="header-channel-configuration">
+			<bean:message key="sdc.config.subscriptions.jsp.header"/>
+</rhn:toolbar>
 <h3><bean:message key="ssm.config.subscribe.jsp.step"/></h3>
 <p><bean:message key="sdc.config.subscriptions.jsp.para1" /></p>
 <noscript>
@@ -33,7 +33,7 @@
         <rhn:set value="${current.id}"/>
         <rhn:column header="sdc.config.subscriptions.jsp.channel"
                       url="/rhn/configuration/ChannelOverview.do?ccid=${current.id}">
-            <i class="fa spacewalk-icon-software-channels" title="<bean:message key="config.common.globalAlt" />"></i>
+            <rhn:icon type="header-channel" title="<bean:message key='config.common.globalAlt' />" />
             ${current.name}
         </rhn:column>
 

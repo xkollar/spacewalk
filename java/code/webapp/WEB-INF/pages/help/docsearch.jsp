@@ -10,7 +10,7 @@
 <script type="text/javascript" src="/javascript/highlander.js"></script>
 </head>
 <body>
-<rhn:toolbar base="h1" icon="fa-search" imgAlt="docsearch.jsp.imgAlt"
+<rhn:toolbar base="h1" icon="header-search" imgAlt="docsearch.jsp.imgAlt"
                helpUrl="">
     <bean:message key="docsearch.jsp.toolbar"/>
   </rhn:toolbar>
@@ -53,7 +53,7 @@
         <div class="form-group">
           <div class="col-md-offset-2 col-md-10">
           <button type="submit" class="btn btn-success btn-sm">
-             <i class="fa fa-search"></i>
+             <rhn:icon type="header-search" />
              <bean:message key="button.search"/>
           </button>
           </div>

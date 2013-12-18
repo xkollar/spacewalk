@@ -9,9 +9,9 @@
 <body>
 <%@ include file="/WEB-INF/pages/common/fragments/systems/system-header.jspf" %>
 
-<h2><img class="h2-image" src="${cfg:channelHeaderIcon('local')}"
-			alt="${cfg:channelAlt('local')}"/>
-		<bean:message key="sdc.config.header.overview"/></h2>
+<rhn:toolbar base="h2" icon="header-configuration">
+		<bean:message key="sdc.config.header.overview"/>
+</rhn:toolbar>
 		<p><bean:message key="sdc.config.file_list.local_description"/></p>
 
 <rl:listset name="fileSet">
@@ -57,10 +57,8 @@
    					</c:set>
       	       		<bean:message key="sdc.config.file_list.revision_from"
 					arg0 = "${cfg:fileRevisionUrl(current.configFileId, current.configRevisionId)}"
-    	       				arg1 = "${cfg:fileListIcon(current.configFileType)}"
-    	       				arg2 = "${rhn:localize(cfg:fileAlt(current.configFileType))}"
-       	       				arg3 = "${current.configRevision}"
-       	       				arg4 = "${channelDisplay}"
+          arg1 = "${current.configRevision}"
+          arg2 = "${channelDisplay}"
        	       				/>
                 </c:when>
                 <c:otherwise>

@@ -17,7 +17,7 @@
 
 
 <div class="page-summary">
-	<h2><i class="spacewalk-icon-system-groups"></i>
+	<h2><rhn:icon type="header-system-groups" />
 	<bean:message key="${param.title_key}"/>
 	</h2>
     <p>
@@ -53,7 +53,7 @@
 				   bound="false"
 		           headerkey="grouplist.jsp.name"
 		           sortattr="name" defaultsort="asc" filterattr="name" styleclass="${nameStyle}">
-		    		<a href="/network/systems/groups/details.pxt?sgid=${current.id}">${current.name}</a>
+		    		<a href="/rhn/groups/GroupDetail.do?sgid=${current.id}">${current.name}</a>
 		</rl:column>
 	</rl:list>
 

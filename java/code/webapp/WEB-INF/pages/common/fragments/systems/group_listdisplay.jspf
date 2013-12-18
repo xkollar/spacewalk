@@ -28,17 +28,17 @@
 		           styleclass="center"
 		           headerclass="thin-column">
 
-	              <c:out value="<a href=\"/network/systems/groups/errata_list.pxt?sgid=${current.id}\">"  escapeXml="false"/>
+                      <c:out value="<a href=\"/rhn/groups/ListErrata.do?sgid=${current.id}\">"  escapeXml="false"/>
 
 	              <c:choose>
 			        <c:when test="${current.mostSevereErrata == 'Security Advisory'}">
-			          <i class="fa fa-exclamation-circle text-danger" title="<bean:message key='grouplist.jsp.security'/>"></i>
+			          <rhn:icon type="system-crit" title="<bean:message key='grouplist.jsp.security' />" />
 			        </c:when>
 			        <c:when test="${current.mostSevereErrata == 'Bug Fix Advisory' or current.mostSevereErrata == 'Product Enhancement Advisory'}">
-			          <i class="fa fa-warning text-warning" title="<bean:message key='grouplist.jsp.updates'/>"></i>
+			          <rhn:icon type="system-warn" title="<bean:message key='grouplist.jsp.updates' />" />
 			        </c:when>
 			        <c:otherwise>
-			          <i class="fa fa-check-circle fa-1-5x text-success" title="<bean:message key='grouplist.jsp.noerrata'/>"></i>
+			          <rhn:icon type="system-ok" title="<bean:message key='grouplist.jsp.noerrata'/>" />
 			        </c:otherwise>
 			      </c:choose>
 
@@ -54,7 +54,7 @@
 				   bound="false"
 		           headerkey="grouplist.jsp.name"
 		           sortattr="name">
-			<c:out value="<a href=\"/network/systems/groups/details.pxt?sgid=${current.id}\">" escapeXml="false" />
+			<c:out value="<a href=\"/rhn/groups/GroupDetail.do?sgid=${current.id}\">" escapeXml="false" />
 			<c:out value="${current.name}" escapeXml="true" />
 			<c:out value="</a>" escapeXml="false" />
 		</rl:column>

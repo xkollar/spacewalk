@@ -9,7 +9,7 @@
         <script type="text/javascript" src="/javascript/highlander.js"></script>
     </head>
     <body>
-        <rhn:toolbar base="h1" icon="fa-search"
+        <rhn:toolbar base="h1" icon="header-search"
                      helpUrl="/rhn/help/reference/en-US/s1-sm-channels-packages.jsp#s2-sm-software-search">
             <bean:message key="packagesearch.jsp.toolbar"/>
         </rhn:toolbar>
@@ -27,7 +27,7 @@
                                    name="search_string" value="${search_string}" accesskey="4"/>
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-default">
-                                <i class="fa fa-search"></i>
+                                <rhn:icon type="header-search" />
                             </button>
                         </span>
                     </div>

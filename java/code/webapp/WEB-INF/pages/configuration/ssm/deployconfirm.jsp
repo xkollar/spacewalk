@@ -8,7 +8,7 @@
 <body>
 <%@ include file="/WEB-INF/pages/common/fragments/ssm/header.jspf" %>
 <h2>
-  <i class="fa spacewalk-icon-manage-configuration-files" title="<bean:message key="ssmdiff.jsp.imgAlt" />"></i>
+  <rhn:icon type="header-configuration" title="<bean:message key='ssmdiff.jsp.imgAlt' />" />
   <bean:message key="deployconfirm.jsp.header" />
 </h2>
 
@@ -41,7 +41,7 @@
           <th><bean:message key="deployconfirm.jsp.usedate"/></th>
         </tr>
         <tr>
-          <th><i class="fa spacewalk-icon-schedule" title="<bean:message key='syncprofile.jsp.selection'/>"></i>
+          <th><rhn:icon type="header-schedule" title="<bean:message key='syncprofile.jsp.selection' />" />
           </th>
           <td>
             <jsp:include page="/WEB-INF/pages/common/fragments/date-picker.jsp">

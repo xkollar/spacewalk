@@ -23,13 +23,13 @@
       <a href="/rhn/configuration/ChannelOverview.do?ccid=${mychan.id}">
       <c:choose>
         <c:when test="${mychan.configChannelType.label == 'server_import'}">
-          <i class="fa spacewalk-icon-sandbox" title="<bean:message key="config.common.sandboxAlt" />"></i>
+          <rhn:icon type="header-sandbox" title="<bean:message key='config.common.sandboxAlt' />" />
         </c:when>
         <c:when test="${mychan.configChannelType.label == 'local_override'}">
-          <i class="fa fa-desktop" title="<bean:message key="config.common.localAlt" />"></i>
+          <rhn:icon type="header-system-physical" title="<bean:message key='config.common.localAlt' />" />
         </c:when>
         <c:otherwise>
-          <i class="fa spacewalk-icon-software-channels" title="<bean:message key="config.common.globalAlt" />"></i>
+          <rhn:icon type="header-channel" title="<bean:message key='config.common.globalAlt' />" />
         </c:otherwise>
       </c:choose>
       ${mychan.name}

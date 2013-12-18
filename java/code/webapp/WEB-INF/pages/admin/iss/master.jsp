@@ -6,7 +6,7 @@
 <html:html>
     <body>
 
-        <rhn:toolbar base="h1" icon="fa-info-circle"
+        <rhn:toolbar base="h1" icon="header-info"
                      creationUrl="/rhn/admin/iss/EditSlave.do" creationType="slave"
                      creationAcl="user_role(satellite_admin)">
             <bean:message key="iss.master.jsp.toolbar" />
@@ -39,19 +39,19 @@
                 <rl:column bound="false" headerkey="iss.slave.isEnabled"
                            sortattr="enabled" styleclass="center" headerclass="center">
                     <c:if test="${current.enabled == 'Y'}">
-                        <i class="fa fa-check text-success" title="<bean:message key='iss.slave.enabled'/>"></i>
+                        <rhn:icon type="item-enabled" title="<bean:message key='iss.slave.enabled' />" />
                     </c:if>
                     <c:if test="${current.enabled != 'Y'}">
-                        <i class="fa fa-circle-o" title="<bean:message key='iss.slave.disabled'/>"></i>
+                        <rhn:icon type="item-disabled" title="<bean:message key='iss.slave.disabled' />" />
                     </c:if>
                 </rl:column>
                 <rl:column bound="false" headerkey="iss.slave.toAll"
                            sortattr="allOrgs" styleclass="center" headerclass="center">
                     <c:if test="${current.allowAllOrgs == 'Y'}">
-                        <i class="fa fa-check text-success" title="<bean:message key='iss.slave.all'/>"></i>
+                        <rhn:icon type="item-enabled" title="<bean:message key='iss.slave.all' />" />
                     </c:if>
                     <c:if test="${current.allowAllOrgs != 'Y'}">
-                        <i class="fa fa-circle-o" title="<bean:message key='iss.slave.notAll'/>"></i>
+                        <rhn:icon type="item-disabled" title="<bean:message key='iss.slave.notAll' />" />
                     </c:if>
                 </rl:column>
                 <rl:column bound="false" headerkey="iss.slave.num-orgs-allowed"

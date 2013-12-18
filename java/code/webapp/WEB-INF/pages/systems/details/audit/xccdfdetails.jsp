@@ -16,9 +16,18 @@
   <c:choose>
     <c:when test="${not empty testResult.comparableId}">
       <a href="/rhn/audit/scap/DiffSubmit.do?first=${testResult.comparableId}&second=${testResult.id}&view=changed">
-        <img src="/img/rhn-listicon-${testResult.diffIcon}.gif"
-          alt="<bean:message key='scapdiff.jsp.i.${testResult.diffIcon}'/>"
-          title="<bean:message key='scapdiff.jsp.i.${testResult.diffIcon}'/>"/>
+         <c:when test="${testResult.diffIcon == 'checked'}" >
+            <rhn:icon type="system-ok" title="<bean:message key='scapdiff.jsp.i.checked'/>"/>
+         </c:when>
+         <c:when test="${testResult.diffIcon == 'alert'}" >
+            <rhn:icon type="system-warn" title="<bean:message key='scapdiff.jsp.i.alert'/>"/>
+         </c:when>
+         <c:when test="${testResult.diffIcon == 'error'}" >
+            <rhn:icon type="system-crit" title="<bean:message key='scapdiff.jsp.i.error'/>"/>
+         </c:when>
+         <c:otherwise>
+            <rhn:icon type="system-unknown" title="<bean:message key='system.audit.xccdfdetails.jsp.nodiff'/>"/>
+         </c:otherwise>
         <bean:message key="system.audit.xccdfdetails.jsp.diff"/>
       </a>
     </c:when>
@@ -30,8 +39,7 @@
 
   <c:if test="${testResult.deletable}">
     <a href="/rhn/systems/details/audit/XccdfDeleteConfirm.do?sid=${param.sid}&xid=${testResult.id}">
-      <i class="fa fa-trash-o"
-          title="<bean:message key='system.audit.xccdfdelete'/>"></i>
+      <rhn:icon type="item-del" title="<bean:message key='system.audit.xccdfdelete'/>" />
       <bean:message key="system.audit.xccdfdelete"/>
     </a>
   |
@@ -62,7 +70,7 @@
   <tr>
     <th><bean:message key="configoverview.jsp.scheduledBy"/>:</th>
     <td>
-      <img src="/img/rhn-listicon-user.gif" alt="<bean:message key='yourrhn.jsp.user.alt'/>"/>
+      <rhn:icon type="header-user" title="<bean:message key='yourrhn.jsp.user.alt'/>"/>
       <a href="/network/systems/details/history/event.pxt?sid=${param.sid}&hid=${testResult.scapActionDetails.parentAction.id}">
         <c:out value="${testResult.scapActionDetails.parentAction.schedulerUser.login}"/>
       </a>

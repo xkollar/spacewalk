@@ -7,10 +7,10 @@
 <html>
 <body>
 
-<rhn:toolbar base="h1" miscIcon="fa-plus"
+<rhn:toolbar base="h1" miscIcon="item-add"
     miscText="kickstart.kickstartable_distro_create_new.jsp"
     miscUrl="TreeCreate.do"
-    icon="fa-rocket"
+    icon="header-kickstart"
     iconAlt="kickstarts.alt.img">
 <bean:message key="kickstart.kickstartable_distributions.jsp" />
 </rhn:toolbar>
@@ -40,10 +40,10 @@
             <rl:column headertext="${rhn:localize('kickstart.distro.is-valid.jsp')}?*" sortattr="valid">
             	<c:choose>
                     <c:when test="${current.valid}">
-                    	<i class="fa fa-check text-success"></i>
+                    <rhn:icon type="item-enabled" />
                     </c:when>
 					<c:otherwise>
-						<i class="fa fa-times-circle text-danger"></i>
+						<rhn:icon type="item-disabled" />
                 	</c:otherwise>
                 </c:choose>
             </rl:column>

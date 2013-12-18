@@ -11,7 +11,7 @@
 <body>
 <%@ include file="/WEB-INF/pages/common/fragments/systems/system-header.jspf" %>
 
-<rhn:toolbar base="h2" icon="fa-desktop" >
+<rhn:toolbar base="h2" icon="header-system" >
   <bean:message key="sdcimportconfirm.jsp.header" />
 </rhn:toolbar>
 
@@ -41,15 +41,15 @@
               <i><bean:message key="sdcimportconfirm.jsp.new" /></i>
             </c:when>
             <c:when test="${current.configChannelType == 'normal'}">
-              <i class="fa spacewalk-icon-software-channels" title="<bean:message key="config.common.globalAlt" />"></i>
+              <rhn:icon type="header-channel" title="<bean:message key='config.common.globalAlt' />" />
     	      ${current.channelNameDisplay}
             </c:when>
             <c:when test="${current.configChannelType == 'local_override'}">
-              <i class="fa fa-desktop" title="<bean:message key="config.common.localAlt" />"></i>
+              <rhn:icon type="header-system-physical" title="<bean:message key='config.common.localAlt' />" />
               ${current.channelNameDisplay}
             </c:when>
             <c:otherwise>
-              <i class="fa spacewalk-icon-sandbox" title="<bean:message key="config.common.sandboxAlt" />"></i>
+              <rhn:icon type="header-sandbox" title="<bean:message key='config.common.sandboxAlt' />" />
               ${current.channelNameDisplay}
             </c:otherwise>
           </c:choose>
@@ -70,7 +70,7 @@
           <th><bean:message key="sdcimportconfirm.jsp.usedate"/></th>
         </tr>
         <tr>
-          <th><i class="fa spacewalk-icon-schedule" title="<bean:message key='syncprofile.jsp.selection'/>"></i>
+          <th><rhn:icon type="header-schedule" title="<bean:message key='syncprofile.jsp.selection' />" />
           </th>
           <td>
             <jsp:include page="/WEB-INF/pages/common/fragments/date-picker.jsp">

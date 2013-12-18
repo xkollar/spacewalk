@@ -5,7 +5,7 @@
 
 <html:html >
 <body>
-<rhn:toolbar base="h1" icon="fa-info-circle" imgAlt="info.alt.img">
+<rhn:toolbar base="h1" icon="header-info" imgAlt="info.alt.img">
   <bean:message key="general.jsp.org.toolbar"/>
 </rhn:toolbar>
 
@@ -21,7 +21,7 @@
     <p><bean:message key="general.jsp.org.summary3"/></p>
     <table class="table">
     	<tr>
-    		<td><i class="fa fa-sitemap fa-3x"></i></td>
+                <td><rhn:icon type="header-multiorg-big" /></td>
     		<td><bean:message key="general.jsp.org.tbl.header1"/>:</td>
         <td>
           <p>
@@ -33,7 +33,7 @@
         </td>
     	</tr>
     	<tr>
-    		<td><i class="fa fa-list-alt fa-3x"></i></td>
+                <td><rhn:icon type="header-subscriptions-big" /></td>
     		<td><bean:message key="general.jsp.org.tbl.header2"/>:</td>
         <td>
           <p>
@@ -45,7 +45,7 @@
         </td>
     	</tr>
     	<tr>
-    		<td><i class="fa fa-group fa-3x"></i></td>
+                <td><rhn:icon type="header-users-big" /></td>
     		<td><bean:message key="general.jsp.org.tbl.header3"/>:</td>
         <td>
           <p>

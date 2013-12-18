@@ -10,9 +10,9 @@
     <meta name="page-decorator" content="none" />
 </head>
 <body>
-<rhn:toolbar base="h1" icon="spacewalk-icon-system-groups" imgAlt="system.common.groupAlt"
+<rhn:toolbar base="h1" icon="header-system-groups" imgAlt="system.common.groupAlt"
  helpUrl="/rhn/help/reference/en-US/s1-sm-systems.jsp#s2-sm-system-group-list"
- creationUrl="/rhn/groups/CreateGroup.do"
+ creationUrl="/rhn/groups/EditGroup.do"
  creationType="group"
  creationAcl="user_role(system_group_admin)">
   <bean:message key="grouplist.jsp.header"/>

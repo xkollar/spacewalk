@@ -28,7 +28,7 @@ Name: spacewalk-java
 Summary: Spacewalk Java site packages
 Group: Applications/Internet
 License: GPLv2
-Version: 2.1.90
+Version: 2.1.102
 Release: 1%{?dist}
 URL:       https://fedorahosted.org/spacewalk
 Source0:   https://fedorahosted.org/releases/s/p/spacewalk/%{name}-%{version}.tar.gz 
@@ -785,6 +785,70 @@ fi
 %{jardir}/postgresql-jdbc.jar
 
 %changelog
+* Tue Dec 17 2013 Tomas Kasparek <tkasparek@redhat.com> 2.1.102-1
+- delete ConfigSystemTag as these things are easily handled in jsp
+- Local variables need not to be synchronized
+
+* Tue Dec 17 2013 Michael Mraka <michael.mraka@redhat.com> 2.1.101-1
+- updated links to system group delete page
+- converted system group > delete page from pxt to java
+- bootstrap tuning: fixed icons
+- rework logic of ConfigFileTag so it uses icons instead of gifs and cool stuff
+- fixing references to SSM errata page
+
+* Mon Dec 16 2013 Michael Mraka <michael.mraka@redhat.com> 2.1.100-1
+- more icon fixes
+- Rewrite of errata_list.pxt to Java
+- call ssm check on system - software crashes, notes, migrate and hardware pages
+- bootstrap fixes
+
+* Fri Dec 13 2013 Michael Mraka <michael.mraka@redhat.com> 2.1.99-1
+- replaced icons with icon tag
+- simplify logic in cfg:channel tag
+
+* Thu Dec 12 2013 Michael Mraka <michael.mraka@redhat.com> 2.1.98-1
+- replaced icons with icon tag
+- system group edit properties - linking + cleanup
+- alter system group create page to do editing
+- use rhn:toolbar tag instead of creating html inside .jsp + unify icons
+- fix icons on config file details page
+- icon for file download
+- unify configuration management icons
+
+* Wed Dec 11 2013 Tomas Kasparek <tkasparek@redhat.com> 2.1.97-1
+- use new icon aliases in more places
+
+* Wed Dec 11 2013 Michael Mraka <michael.mraka@redhat.com> 2.1.96-1
+- allow channel administrator to view Channel > Managers page
+
+* Wed Dec 11 2013 Milan Zazrivec <mzazrivec@redhat.com> 2.1.95-1
+- 1040540 - have package search return all matching results
+- use rhn:toolbar in 'Show Tomcat Logs' page
+
+* Wed Dec 11 2013 Tomas Kasparek <tkasparek@redhat.com> 2.1.94-1
+- use new icon aliases in rhn:toolbar tag
+- adding new icon definitions
+- adding rhn taglib as it's needed by rhn:icon
+- use rhn:icon tag for creating icons in rhn:toolbar
+
+* Tue Dec 10 2013 Stephen Herr <sherr@redhat.com> 2.1.93-1
+- 1039193 - Increase default ram to 768 for RHEL 7
+
+* Tue Dec 10 2013 Tomas Kasparek <tkasparek@redhat.com> 2.1.92-1
+- bootstrap tuning: use new icon tag
+- use static code for icons map in IconTag + typo and documentation fix
+- System Group / Admins - updated links and removed old page
+- ported System Group / Admins to java
+- bootstrap tuning: icon tag for simpler icon inserting
+
+* Mon Dec 09 2013 Jan Dobes 2.1.91-1
+- system group details - linking + cleanup
+- converting system group details page to java
+- LoginExpiredTest fixed
+- VirtualizationEntitlementTestCase: dead code removed
+- LoginExpiredSatTestCase: rename to respect test convention
+- removed trailing whitespaces from jsp{,f} sources
+
 * Wed Dec 04 2013 Michael Mraka <michael.mraka@redhat.com> 2.1.90-1
 - bootstrap tuning
 

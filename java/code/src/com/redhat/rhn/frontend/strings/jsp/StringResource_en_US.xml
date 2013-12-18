@@ -5240,6 +5240,21 @@ value for this entitlement, excluding the default organization's consumption.</s
         <trans-unit id="systems.groups.jsp.add">
           <source>Join Selected Groups</source>
         </trans-unit>
+        <trans-unit id="systemgroup.admins.title">
+          <source>Group Administrators</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.admins.summary">
+          <source>Checked users may administer the systems in this group.  Org Admins may always administer all systems. System Group Admins are marked with (*) and may modify all aspects of system groups assigned to them.</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.admins.updated">
+          <source>Admin list for system group &lt;strong&gt;{0}&lt;/strong&gt; updated.</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.erratalist.title">
+          <source>Relevant Errata </source>
+        </trans-unit>
+        <trans-unit id="systemgroup.erratalist.summary">
+          <source>The following errata apply to one or more of the systems in this group.</source>
+        </trans-unit>
         <trans-unit id="systemgroup.target-systems.summary">
           <source>The following are systems that may be added to this group.</source>
         </trans-unit>
@@ -5261,16 +5276,79 @@ value for this entitlement, excluding the default organization's consumption.</s
         <trans-unit id="systemgroup.systems.remove">
           <source>Remove Systems</source>
         </trans-unit>
+        <trans-unit id="systemgroup.details.status">
+          <source>System Group Status</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.updates">
+          <source>Updates:</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.criticalupdates">
+          <source>critical updates available</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.someupdates">
+          <source>updates available</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.noupdates">
+          <source>No applicable errata</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.none">
+          <source>(none)</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.properties">
+          <source>System Group Properties</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.editproperties">
+          <source>Edit These Properties</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.admins">
+          <source>Admins:</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.manageadmins">
+          <source>Edit group administrators</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.systems">
+          <source>Systems:</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.name">
+          <source>Name:</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.description">
+          <source>Description:</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.details.admincount">
+          <source>group administrator(s)</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.delete.title">
+          <source>System Group Deletion Confirmation</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.delete.subtitle">
+          <source>This will delete the following System Group: {1}{0}{2}</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.delete.summary">
+          <source>Note that this will only delete the system group itself, {0}not{1} any current systems that happen to be members.</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.delete.confirm">
+          <source>Confirm Deletion</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.delete.deleted">
+          <source>System group "{0}" deleted.</source>
+        </trans-unit>
       </group>
       <group>
         <context-group name="ctx">
-          <context context-type="sourcefile">/rhn/groups/CreateGroup.do</context>
+          <context context-type="sourcefile">/rhn/groups/EditGroup.do</context>
         </context-group>
         <trans-unit id="systemgroup.create.header">
           <source>Create System Group</source>
         </trans-unit>
+        <trans-unit id="systemgroup.edit.header">
+          <source>Edit System Group</source>
+        </trans-unit>
         <trans-unit id="systemgroup.create.summary">
           <source>Create a system group using the form provided. Note that the group will be empty until systems are joined to it. Entries marked with an asterisk (&lt;span class="required-form-field"&gt;*&lt;/span&gt;) are &lt;strong&gt;required&lt;/strong&gt;.</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.edit.summary">
+          <source>Update group properties using the form provided. Entries marked with an asterisk (&lt;span class="required-form-field"&gt;*&lt;/span&gt;) are &lt;strong&gt;required&lt;/strong&gt;.</source>
         </trans-unit>
         <trans-unit id="systemgroup.create.requiredfield">
           <source>Required Field</source>
@@ -5289,6 +5367,9 @@ value for this entitlement, excluding the default organization's consumption.</s
         </trans-unit>
         <trans-unit id="systemgroup.create.creategroup">
           <source>Create Group</source>
+        </trans-unit>
+        <trans-unit id="systemgroup.edit.editgroup">
+          <source>Update Group</source>
         </trans-unit>
       </group>
       <!--System Entitlements Page - entitlements.jsp -->
@@ -14391,7 +14472,7 @@ any of these revisions.  Are you sure you want to do this?</source>
           <source>Overridden By</source>
         </trans-unit>
         <trans-unit id="sdc.config.file_list.revision_from">
-          <source>&lt;a href="{0}"&gt;&lt;img src ="{1}" alt="{2}"/&gt;Revision {3}&lt;/a&gt; from {4}</source>
+          <source>&lt;a href="{0}"&gt;Revision {1}&lt;/a&gt; from {2}</source>
         </trans-unit>
         <trans-unit id="sdc.config.file_list.revision">
           <source>&lt;a href="{0}"&gt;Revision {1}&lt;/a&gt;</source>

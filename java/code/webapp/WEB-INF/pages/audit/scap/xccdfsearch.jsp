@@ -20,7 +20,7 @@
         </script>
     </head>
     <body>
-        <rhn:toolbar base="h1" icon="fa-search">
+        <rhn:toolbar base="h1" icon="header-search">
             <bean:message key="scapsearch.jsp.toolbar"/>
         </rhn:toolbar>
         <p><bean:message key="scapsearch.jsp.summary"/></p>
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-default btn-sm">
-                                        <i class="fa fa-search"></i>
+                                        <rhn:icon type="header-search" />
                                         <bean:message key="button.search"/>
                                     </button>
                                 </div>

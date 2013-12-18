@@ -39,7 +39,7 @@
 </script>
 </head>
 <body>
-<rhn:toolbar base="h1" icon="fa-desktop" imgAlt="system.common.systemAlt"
+<rhn:toolbar base="h1" icon="header-system" imgAlt="system.common.systemAlt"
  helpUrl="/rhn/help/reference/en-US/s1-sm-systems.jsp#s3-sm-system-list-ood">
   <bean:message key="duplicates.jsp.header"/>
 </rhn:toolbar>
@@ -75,7 +75,7 @@
 
   <div class="text-right">
     <hr />
-    <button type="submit" class="btn btn-default" name="refresh"><i class="fa fa-refresh"></i> <bean:message key='Refresh Comparison'/></button>
+    <button type="submit" class="btn btn-default" name="refresh"><rhn:icon type="header-refresh" /> <bean:message key='Refresh Comparison'/></button>
   </div>
 <rhn:submitted/>
 <br/>
@@ -137,7 +137,7 @@
 	<tr class="list-row-odd"  id = "systemGroupsRow">
 		<c:set var ="key" value="System Groups"/>
 		<c:set var ="items_list" value="${requestScope.systems.systemGroups}"/>
-		<c:set var ="href" value="/network/systems/groups/details.pxt?sgid="/>
+		<c:set var ="href" value="/rhn/groups/GroupDetail.do?sgid="/>
 		<%@ include file="/WEB-INF/pages/common/fragments/systems/duplicates/render-item-list-list.jspf" %>
 	</tr>
 	<tr>

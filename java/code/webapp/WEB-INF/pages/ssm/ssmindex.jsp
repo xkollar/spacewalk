@@ -17,11 +17,11 @@
 
 
 <div class="panel panel-default">
-    <ul class="list-group">    
+    <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
                 <div class="col-sm-2">
-                    <i class="fa fa-desktop fa-fw" title="<bean:message key="ssm.overview.systems" />"></i>
+                    <rhn:icon type="header-system" title="<bean:message key='ssm.overview.systems' />" />
                     <bean:message key="ssm.overview.systems"/>
                 </div>
                 <div class="col-sm-10">
@@ -32,7 +32,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-sm-2">
-                    <i class="fa spacewalk-icon-patches fa-fw" title="<bean:message key="ssm.overview.errata"/>"></i>
+                    <rhn:icon type="header-errata" title="<bean:message key='ssm.overview.errata'/>" />
                     <bean:message key="ssm.overview.errata"/>
                 </div>
                 <div class="col-sm-10">
@@ -43,7 +43,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-sm-2">
-                    <i class="fa spacewalk-icon-packages fa-fw" title="<bean:message key='ssm.overview.packages'/>"></i>
+                    <rhn:icon type="header-package" title="<bean:message key='ssm.overview.packages' />" />
                     <bean:message key="ssm.overview.packages"/>
                 </div>
                 <div class="col-sm-10">
@@ -55,7 +55,7 @@
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-sm-2">
-                        <i class="fa spacewalk-icon-patches fa-fw" title="<bean:message key='ssm.overview.patches'/>"></i>
+                        <rhn:icon type="header-errata" title="<bean:message key='ssm.overview.patches' />" />
                         <bean:message key="ssm.overview.patches"/>
                     </div>
                     <div class="col-sm-10">
@@ -67,7 +67,7 @@
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-sm-2">
-                        <i class="fa spacewalk-icon-patch-set fa-fw" title="<bean:message key='ssm.overview.patch.clusters'/>"></i>
+                        <rhn:icon type="header-errata-set" title="<bean:message key='ssm.overview.patch.clusters' />" />
                         <bean:message key="ssm.overview.patch.clusters"/>
                     </div>
                     <div class="col-sm-10">
@@ -80,7 +80,7 @@
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-sm-2">
-                        <i class="fa spacewalk-icon-system-groups fa-fw" title="<bean:message key='ssm.overview.groups'/>"></i>
+                        <rhn:icon type="header-system-groups" title="<bean:message key='ssm.overview.groups' />" />
                         <bean:message key="ssm.overview.groups"/>
                     </div>
                     <div class="col-sm-10">
@@ -92,7 +92,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-sm-2">
-                    <i class="fa spacewalk-icon-software-channels fa-fw" title="<bean:message key='ssm.overview.channels'/>"></i>
+                    <rhn:icon type="header-channel" title="<bean:message key='ssm.overview.channels' />" />
                     <bean:message key="ssm.overview.channels"/>
                 </div>
                 <div class="col-sm-10">
@@ -110,7 +110,7 @@
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-sm-2">
-                        <i class="fa fa-rocket fa-fw" title="<bean:message key='ssm.overview.provisioning'/>"></i>
+                        <rhn:icon type="header-kickstart" title="<bean:message key='ssm.overview.provisioning' />" />
                         <bean:message key="ssm.overview.provisioning"/>
                     </div>
                     <div class="col-sm-10">
@@ -126,7 +126,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-sm-2">
-                    <i class="fa fa-suitcase fa-fw" title="<bean:message key='ssm.overview.misc'/>"></i>
+                    <rhn:icon type="header-event-history" title="<bean:message key='ssm.overview.misc' />" />
                     <bean:message key="ssm.overview.misc"/>
                 </div>
                 <div class="col-sm-10">
@@ -147,7 +147,6 @@
             </div>
         </li>
     </ul>
-    
 </div>
 
 </body>
