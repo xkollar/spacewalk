@@ -9,8 +9,6 @@
             type="org.apache.struts.action.DynaActionForm">
             <form-property name="username" type="java.lang.String"/>
             <form-property name="password" type="java.lang.String"/>
-            <form-property name="url_bounce" type="java.lang.String"/>
-            <form-property name="request_method" type="java.lang.String"/>
         </form-bean>
       <form-bean name="activationKeyForm"
            type="com.redhat.rhn.frontend.struts.ScrubbingDynaActionForm">
@@ -3054,6 +3052,13 @@
                    path="/WEB-INF/pages/systems/systemsearch.jsp"/>
     </action>
 
+    <action path="/systems/WorkWithGroup"
+            scope="request"
+            type="com.redhat.rhn.frontend.action.systems.WorkWithGroupAction">
+            <forward name="default"
+                     path="/systems/ssm/ListSystems.do" redirect="true" />
+    </action>
+
     <action path="/systems/details/audit/ListScap"
         scope="request"
         input="/WEB-INF/pages/systems/details/audit/listscap.jsp"
@@ -3542,6 +3547,14 @@
                  path="/systems/Overview.do" redirect="true"/>
     </action>
 
+    <action path="/systems/details/history/History"
+        scope="request"
+        type="com.redhat.rhn.frontend.action.systems.sdc.SystemHistoryAction"
+        className="com.redhat.rhn.frontend.struts.RhnActionMapping">
+        <forward name="default"
+                 path="/WEB-INF/pages/systems/sdc/history.jsp"/>
+    </action>
+
     <!--System Details SSM Configuration -->
         <action path="/systems/ssm/DeleteConfirm"
         scope="request"
@@ -3950,7 +3963,7 @@
         scope="request"
         name="deleteSystemGroupForm"
         input="/WEB-INF/pages/groups/delete.jsp"
-        type="com.redhat.rhn.frontend.action.token.DeleteGroupAction"
+        type="com.redhat.rhn.frontend.action.groups.DeleteGroupAction"
         className="com.redhat.rhn.frontend.struts.RhnActionMapping"
         >
         <set-property property="postRequiredIfSubmitted" value="true" />

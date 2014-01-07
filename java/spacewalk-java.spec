@@ -28,7 +28,7 @@ Name: spacewalk-java
 Summary: Spacewalk Java site packages
 Group: Applications/Internet
 License: GPLv2
-Version: 2.1.102
+Version: 2.1.109
 Release: 1%{?dist}
 URL:       https://fedorahosted.org/spacewalk
 Source0:   https://fedorahosted.org/releases/s/p/spacewalk/%{name}-%{version}.tar.gz 
@@ -785,6 +785,43 @@ fi
 %{jardir}/postgresql-jdbc.jar
 
 %changelog
+* Mon Jan 06 2014 Tomas Lestach <tlestach@redhat.com> 2.1.109-1
+- 1048090 - Revert "add package ID to array returned by system.listPackages API
+  call"
+
+* Fri Jan 03 2014 Tomas Lestach <tlestach@redhat.com> 2.1.108-1
+- store url_bounce and request_method to session and re-use common login parts
+- support logins using Kerberos ticket
+- 1044547 - adding newlines as needed
+
+* Mon Dec 23 2013 Milan Zazrivec <mzazrivec@redhat.com> 2.1.107-1
+- Remove extraneous character from query
+- Fix action type
+- fix icon name
+- Use new rhn:icon internationalization/localization
+- Perform localization inside rhn:icon tag
+
+* Thu Dec 19 2013 Michael Mraka <michael.mraka@redhat.com> 2.1.106-1
+- updated references to new java WorkWithGroup page
+- work_with_group.pxt rewritten to java
+- change order of system ok/warn/crit in legends
+- rewrite system event history page to java
+- give icons title in rhn:toolbar tag
+
+* Wed Dec 18 2013 Stephen Herr <sherr@redhat.com> 2.1.105-1
+- 1044547 - kickstarts to RHEL 7 don't work because of missing rpms
+
+* Wed Dec 18 2013 Stephen Herr <sherr@redhat.com> 2.1.104-1
+- 1039193 - fix checkstyle
+
+* Wed Dec 18 2013 Stephen Herr <sherr@redhat.com> 2.1.103-1
+- 1039193 - fixing null pointer exception
+- fix package according to the fs path
+- fix CSVTag so it uses IconTag
+- fix ListDisplayTag so it uses IconTag
+- removing dead code, exception is thrown within lookupAndBindServerGroup
+- removing dead code, exception is thrown within lookupAndBindServerGroup
+
 * Tue Dec 17 2013 Tomas Kasparek <tkasparek@redhat.com> 2.1.102-1
 - delete ConfigSystemTag as these things are easily handled in jsp
 - Local variables need not to be synchronized
