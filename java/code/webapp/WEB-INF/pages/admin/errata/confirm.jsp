@@ -3,6 +3,7 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <html>
+<<<<<<< HEAD
     <head>
         <meta name="name" value="Systems Affected" />
     </head>
@@ -35,10 +36,7 @@
                         </span>
                     </div>
                 </div>
-                <jsp:include page="/WEB-INF/pages/common/fragments/datepicker-with-label.jsp">
-                    <jsp:param name="widget" value="date" />
-                    <jsp:param name="label_text" value="schedule.jsp.at" />
-                </jsp:include>
+                <jsp:include page="/WEB-INF/pages/common/fragments/schedule-options.jspf"/>
                 <div class="form-group">
                     <div class="col-md-offset-3 col-md-6">
                           <html:submit styleClass="btn btn-default" property="dispatch">
