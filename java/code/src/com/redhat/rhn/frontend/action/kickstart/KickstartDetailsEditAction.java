@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2012 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -219,10 +219,10 @@ public class KickstartDetailsEditAction extends BaseKickstartEditAction {
 
 
             cmd.setLabel(form.getString(LABEL));
-            cmd.setActive(new
-                    Boolean(BooleanUtils.toBoolean((Boolean) form.get(ACTIVE))));
-            cmd.setIsOrgDefault(new
-                    Boolean(BooleanUtils.toBoolean((Boolean) form.get(ORG_DEFAULT))));
+            cmd.setActive(Boolean.valueOf(
+                    BooleanUtils.toBoolean((Boolean) form.get(ACTIVE))));
+            cmd.setIsOrgDefault(Boolean.valueOf(
+                    BooleanUtils.toBoolean((Boolean) form.get(ORG_DEFAULT))));
             cmd.getKickstartData().setPostLog(
                     BooleanUtils.toBoolean((Boolean) form.get(POST_LOG)));
             cmd.getKickstartData().setPreLog(

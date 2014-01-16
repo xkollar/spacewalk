@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2012 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -37,7 +37,6 @@ public class ChannelTreeNode extends BaseDto implements BaseListDto,
 
     private Long id;
     private String name;
-    private Long depth;
     private Long channelArchId;
     private Long currentMembers;
     private Long availableMembers;
@@ -240,13 +239,6 @@ public class ChannelTreeNode extends BaseDto implements BaseListDto,
             return 1L;
         } //if it's a child the depth is 2
         return 2L;
-    }
-
-    /**
-     * @param depthIn The depth to set.
-     */
-    public void setDepth(Long depthIn) {
-        this.depth = depthIn;
     }
 
     /**

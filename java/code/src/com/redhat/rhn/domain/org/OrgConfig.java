@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 Red Hat, Inc.
+ * Copyright (c) 2013--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -27,7 +27,6 @@ public class OrgConfig extends BaseDomainHelper {
     protected static Logger log = Logger.getLogger(OrgConfig.class);
 
     private Long orgId;
-    private Org org;
     private boolean stagingContentEnabled;
     private boolean crashReportingEnabled;
     private boolean crashfileUploadEnabled;

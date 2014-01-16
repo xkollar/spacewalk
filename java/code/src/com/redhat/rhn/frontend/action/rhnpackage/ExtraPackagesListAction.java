@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Red Hat, Inc.
+ * Copyright (c) 2012--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -27,7 +27,6 @@ import com.redhat.rhn.manager.system.SystemManager;
  * ExtraPackagesListAction
  */
 public class ExtraPackagesListAction extends BaseSystemPackagesAction {
-    private static final String LIST_NAME = "extraPackageList";
     public static final String DATA_SET = "extras";
 
     @Override

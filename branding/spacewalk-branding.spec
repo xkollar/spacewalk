@@ -9,7 +9,7 @@
 %endif
 
 Name:       spacewalk-branding
-Version:    2.1.15
+Version:    2.1.18
 Release:    1%{?dist}
 Summary:    Spacewalk branding data
 
@@ -22,7 +22,9 @@ BuildArch:  noarch
 
 BuildRequires: java-devel >= 1.5.0
 BuildRequires: nodejs-less
+BuildRequires: bootstrap-less <= 3.0.0
 Requires:   httpd
+Requires: bootstrap <= 3.0.0
 
 %description
 Spacewalk specific branding, CSS, and images.
@@ -37,7 +39,7 @@ rm -f java/code/src/com/redhat/rhn/branding/strings/StringPackage.java
 jar -cf java-branding.jar -C java/code/src com
 
 # Compile less into css
-lessc css/spacewalk.less > css/spacewalk.css
+lessc --include-path=/usr/share css/spacewalk.less > css/spacewalk.css
 
 %install
 rm -rf %{buildroot}
@@ -82,6 +84,16 @@ rm -rf %{buildroot}
 %doc LICENSE
 
 %changelog
+* Tue Jan 14 2014 Matej Kollar <mkollar@redhat.com> 2.1.18-1
+- Fix to use .less files in development mode
+
+* Mon Jan 13 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.17-1
+- allow to use .less files in development mode
+- perl List port to new css/markup
+
+* Thu Jan 09 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.16-1
+- use packaged upstream bootstrap .less files
+
 * Mon Dec 16 2013 Michael Mraka <michael.mraka@redhat.com> 2.1.15-1
 - making help links disappear
 - colour added to the counter in SSM

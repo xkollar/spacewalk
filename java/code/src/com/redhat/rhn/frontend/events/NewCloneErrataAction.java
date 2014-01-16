@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2012 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -21,7 +21,6 @@ import com.redhat.rhn.common.messaging.EventMessage;
 import com.redhat.rhn.domain.errata.Errata;
 import com.redhat.rhn.domain.errata.ErrataFactory;
 import com.redhat.rhn.manager.errata.ErrataManager;
-import org.apache.log4j.Logger;
 
 /**
  * NewCloneErrataAction
@@ -29,8 +28,6 @@ import org.apache.log4j.Logger;
  */
 public class NewCloneErrataAction
 extends AbstractDatabaseAction {
-
-    private static Logger log = Logger.getLogger(NewCloneErrataAction.class);
 
     /**
      * {@inheritDoc}

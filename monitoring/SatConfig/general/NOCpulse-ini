@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use strict;
 #
-# Copyright (c) 2009--2012 Red Hat, Inc.
+# Copyright (c) 2009--2014 Red Hat, Inc.
 #
 # This software is licensed to you under the GNU General Public License,
 # version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -132,6 +132,8 @@ $ini->disconnect();
 
 =pod
 
+=encoding utf8
+
 =head1 NAME
 
 NOCpulse-ini - Show content of monitoring config file NOCpulse.ini and allow you to edit it.
@@ -200,7 +202,7 @@ Miroslav Suchý <msuchy@redhat.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2009--2012 Red Hat, Inc.
+Copyright (c) 2009--2014 Red Hat, Inc.
 Released under GNU General Public License, version 2 (GPLv2).
 
 =cut

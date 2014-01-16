@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2013 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -60,7 +60,7 @@ public class MD5Crypt {
             salt = salt.substring(prefix.length());
         }
 
-        int end = salt.indexOf("$");
+        int end = salt.indexOf('$');
         if (end != -1) {
             salt = salt.substring(0, end);
         }

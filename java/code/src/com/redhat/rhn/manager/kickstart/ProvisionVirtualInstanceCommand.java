@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2012 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -60,7 +60,6 @@ public class ProvisionVirtualInstanceCommand extends KickstartScheduleCommand {
     private String guestName;
     private Long memoryAllocation;
     private Long virtualCpus;
-    private String storageType;
     private Long localStorage;
     private String filePath;
     private String virtBridge;
@@ -269,14 +268,6 @@ public class ProvisionVirtualInstanceCommand extends KickstartScheduleCommand {
      */
     public void setVirtualCpus(Long virtualCpusIn) {
         this.virtualCpus = virtualCpusIn;
-    }
-
-
-    /**
-     * @param storageTypeIn the storageType to set.
-     */
-    public void setStorageType(String storageTypeIn) {
-        this.storageType = storageTypeIn;
     }
 
     /**

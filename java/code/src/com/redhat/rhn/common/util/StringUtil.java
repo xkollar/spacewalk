@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2012 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -427,7 +427,7 @@ public class StringUtil {
      * @return position of last char of URL, returns -1 when entire String is URL
      */
     private static int findEndOfUrl(String entireToken) {
-        int space = entireToken.indexOf(" ");
+        int space = entireToken.indexOf(' ');
         int line = entireToken.indexOf("<br/>");
         int tag = entireToken.indexOf("&lt;");
         int end = -1;

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 Red Hat, Inc.
+ * Copyright (c) 2013--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -33,7 +33,6 @@ import java.util.Map;
  */
 public class LoggingFactory extends HibernateFactory {
 
-    private static LoggingFactory singleton = new LoggingFactory();
     private static Logger log = Logger.getLogger(LoggingFactory.class);
     public static final String SETUP_LOG_USER = "SETUP";
 

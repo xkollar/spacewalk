@@ -1,6 +1,6 @@
 # Spacewalk Proxy Server Broker handler code.
 #
-# Copyright (c) 2008--2012 Red Hat, Inc.
+# Copyright (c) 2008--2014 Red Hat, Inc.
 #
 # This software is licensed to you under the GNU General Public License,
 # version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -190,7 +190,7 @@ class BrokerHandler(SharedHandler):
         if 'X-RHN-Proxy-Auth' in _oto:
             log_debug(5, 'X-RHN-Proxy-Auth currently set to: %s' % repr(_oto['X-RHN-Proxy-Auth']))
         else:
-            log_debug(5, 'X-RHN-Proxy-Auth is not set'
+            log_debug(5, 'X-RHN-Proxy-Auth is not set')
 
         if self.req.headers_in.has_key('X-RHN-Proxy-Auth'):
             tokens = []

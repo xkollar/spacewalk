@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2012 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -189,7 +189,7 @@ public class Config {
             return null;
         }
 
-        int lastDot = value.lastIndexOf(".");
+        int lastDot = value.lastIndexOf('.');
         String ns = "";
         String property = value;
         if (lastDot > 0) {

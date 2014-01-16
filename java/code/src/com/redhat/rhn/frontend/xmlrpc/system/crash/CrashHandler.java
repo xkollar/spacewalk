@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 Red Hat, Inc.
+ * Copyright (c) 2013--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -42,8 +42,6 @@ import com.redhat.rhn.manager.system.CrashManager;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang.StringUtils;
 
-import org.apache.log4j.Logger;
-
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -61,7 +59,6 @@ import java.util.Map;
  */
 public class CrashHandler extends BaseHandler {
 
-    private static Logger log = Logger.getLogger(CrashHandler.class);
     private static float freeMemCoeff = 0.9f;
 
     private CrashCount getCrashCount(Server serverIn) {

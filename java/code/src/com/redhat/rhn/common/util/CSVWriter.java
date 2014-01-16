@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2010 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -221,7 +221,7 @@ public class CSVWriter extends BufferedWriter implements ExportWriter {
      */
     public void write(String s) throws IOException {
         // If the string does not contain a comma, just write it out
-        if (s.indexOf(separatorChar) == -1 && s.indexOf("\"") == -1) {
+        if (s.indexOf(separatorChar) == -1 && s.indexOf('"') == -1) {
             super.write(s);
             return;
         }
@@ -232,7 +232,7 @@ public class CSVWriter extends BufferedWriter implements ExportWriter {
         super.write("\"");
         int from = 0;
         for (;;) {
-            int to = s.indexOf("\"", from);
+            int to = s.indexOf('"', from);
             if (to == -1) {
                 super.write(s, from, s.length() - from);
                 break;

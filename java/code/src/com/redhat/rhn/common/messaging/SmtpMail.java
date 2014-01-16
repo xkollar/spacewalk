@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2010 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -271,7 +271,7 @@ public class SmtpMail implements Mail {
         log.debug("verifyAddress called ...");
         boolean retval = true;
         String domain = addr.getAddress();
-        int domainStart = domain.indexOf("@");
+        int domainStart = domain.indexOf('@');
         if (domainStart > -1 && domainStart + 1 < domain.length()) {
             domain = domain.substring(domainStart + 1);
 

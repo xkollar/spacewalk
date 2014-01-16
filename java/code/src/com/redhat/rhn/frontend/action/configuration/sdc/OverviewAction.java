@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2012 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -84,8 +84,6 @@ public class OverviewAction extends RhnAction {
 
     private static final String DEPLOY_FILES_URL =
                         "/rhn/systems/details/configuration/DeployFile.do";
-    private static final String COMPARE_FILES_URL =
-                            "/rhn/systems/details/configuration/DiffFile.do";
 
     private static final String ACTION_DETAILS_URL =
                                 "/network/systems/details/history/event.pxt";

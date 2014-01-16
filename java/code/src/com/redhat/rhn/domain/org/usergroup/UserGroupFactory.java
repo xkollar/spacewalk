@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2012 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -29,7 +29,6 @@ import org.apache.log4j.Logger;
  */
 public class UserGroupFactory extends HibernateFactory {
 
-    private static UserGroupFactory singleton = new UserGroupFactory();
     private static Logger log = Logger.getLogger(UserGroupFactory.class);
 
     private UserGroupFactory() {

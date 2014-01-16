@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2012 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -462,7 +462,7 @@ public  class UserFactory extends HibernateFactory {
         CallableMode m = ModeFactory.getCallableMode("User_queries",
                 "update_perms_for_user");
         Map<String, Object> inParams = new HashMap<String, Object>();
-        inParams.put("user_id", usr.getId());
+        inParams.put(USER_ID, usr.getId());
         m.execute(inParams, new HashMap<String, Integer>());
     }
 
@@ -733,7 +733,7 @@ public  class UserFactory extends HibernateFactory {
                 "delete_user");
         Map<String, Object> inParams = new HashMap<String, Object>();
         Map<String, Integer> outParams = new HashMap<String, Integer>();
-        inParams.put("user_id", userId);
+        inParams.put(USER_ID, userId);
         m.execute(inParams, outParams);
     }
 }

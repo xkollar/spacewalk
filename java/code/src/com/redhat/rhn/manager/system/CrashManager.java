@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 Red Hat, Inc.
+ * Copyright (c) 2013--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -29,15 +29,11 @@ import com.redhat.rhn.manager.BaseManager;
 
 import java.io.File;
 
-import org.apache.log4j.Logger;
-
 /**
  * CrashManager
  * @version $Rev$
  */
 public class CrashManager extends BaseManager {
-
-    private static Logger log = Logger.getLogger(CrashManager.class);
 
     /**
      * Lookup Crash by its ID and User.

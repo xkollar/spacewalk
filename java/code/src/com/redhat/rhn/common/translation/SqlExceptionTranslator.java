@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2012 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -70,8 +70,8 @@ public class SqlExceptionTranslator extends Translations {
         String msg = e.getMessage();
         switch(code) {
             case 1:
-                int ind = msg.indexOf("(") + 1;
-                String desc = msg.substring(ind, msg.indexOf(")", ind));
+                int ind = msg.indexOf('(') + 1;
+                String desc = msg.substring(ind, msg.indexOf(')', ind));
                 return new ConstraintViolationException(
                              ExceptionConstants.VALUE_TOO_LARGE, desc, msg, e);
             case 1401:

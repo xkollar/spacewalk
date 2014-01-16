@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2012 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -54,7 +54,10 @@ public class LoginActionTest extends RhnBaseTestCase {
 
         RequestContext requestContext = new RequestContext(request);
 
-        request.setSession(new MockHttpSession());
+        MockHttpSession mockSession = new MockHttpSession();
+        mockSession.setupGetAttribute("url_bounce", null);
+        mockSession.setupGetAttribute("request_method", "GET");
+        request.setSession(mockSession);
         request.setupServerName("mymachine.rhndev.redhat.com");
         WebSession s = requestContext.getWebSession();
         request.addCookie(pcm.createPxtCookie(s.getId(), request, 10));
@@ -131,7 +134,10 @@ public class LoginActionTest extends RhnBaseTestCase {
 
         RequestContext requestContext = new RequestContext(request);
 
-        request.setSession(new MockHttpSession());
+        MockHttpSession mockSession = new MockHttpSession();
+        mockSession.setupGetAttribute("url_bounce", null);
+        mockSession.setupGetAttribute("request_method", "GET");
+        request.setSession(mockSession);
         request.setupServerName("mymachine.rhndev.redhat.com");
         WebSession s = requestContext.getWebSession();
         request.addCookie(pcm.createPxtCookie(s.getId(), request, 10));

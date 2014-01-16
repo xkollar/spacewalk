@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009--2010 Red Hat, Inc.
+ * Copyright (c) 2009--2014 Red Hat, Inc.
  *
  * This software is licensed to you under the GNU General Public License,
  * version 2 (GPLv2). There is NO WARRANTY for this software, express or
@@ -52,8 +52,8 @@ public final class XmlMessages {
     public static final String MESSAGE_NOT_FOUND = "*** MESSAGE NOT FOUND ***";
 
     /** Set to "StringResource"
-      */
-    protected static final String RESOURCE_BUNDLE_CLASSNAME = "StringResource";
+     */
+    private static final String RESOURCE_BUNDLE_CLASSNAME = "StringResource";
 
     public static final String PRODUCT_NAME_MACRO = "@@PRODUCT_NAME@@";
 
