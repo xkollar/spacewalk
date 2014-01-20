@@ -1,5 +1,5 @@
 Name:		spacewalk-jpp-workaround
-Version:	1.0.5
+Version:	2.1.2
 Release:	1%{?dist}
 Summary:	Workaround package to fulfill jpackage broken dependencies
 
@@ -38,6 +38,9 @@ Requires:   struts >= 1.3.10
 %if 0%{?fedora} >= 20
 Provides:   jakarta-commons-logging = 1.1.3
 Requires:   apache-commons-logging
+Obsoletes:  jpackage-utils >= 5.0.0
+Requires:   javapackages-tools
+Provides:   jpackage-utils
 %endif
 
 %description
@@ -62,6 +65,13 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Jan 17 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.2-1
+- obsoleted package should be also provided
+
+* Thu Jan 16 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.1-1
+- fixed tito build warning
+- jpackage-utils were replaced with javapackages-tools in fc20
+
 * Fri Jan 10 2014 Tomas Lestach <tlestach@redhat.com> 1.0.5-1
 - introduce commons-logging workaround for fc20
 

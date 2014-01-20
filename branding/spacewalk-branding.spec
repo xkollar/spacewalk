@@ -9,7 +9,7 @@
 %endif
 
 Name:       spacewalk-branding
-Version:    2.1.18
+Version:    2.1.20
 Release:    1%{?dist}
 Summary:    Spacewalk branding data
 
@@ -24,7 +24,9 @@ BuildRequires: java-devel >= 1.5.0
 BuildRequires: nodejs-less
 BuildRequires: bootstrap-less <= 3.0.0
 Requires:   httpd
-Requires: bootstrap <= 3.0.0
+Requires:   bootstrap <= 3.0.0
+Requires:   font-awesome >= 4.0.0
+Requires:   roboto >= 1.2
 
 %description
 Spacewalk specific branding, CSS, and images.
@@ -84,6 +86,13 @@ rm -rf %{buildroot}
 %doc LICENSE
 
 %changelog
+* Fri Jan 17 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.20-1
+- Roboto font has been moved to separate package
+- font-awesome has been moved to separate package
+
+* Thu Jan 16 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.19-1
+- Fix to use .less files in development mode (2)
+
 * Tue Jan 14 2014 Matej Kollar <mkollar@redhat.com> 2.1.18-1
 - Fix to use .less files in development mode
 
