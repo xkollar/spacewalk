@@ -3,7 +3,6 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <html>
-<<<<<<< HEAD
     <head>
         <meta name="name" value="Systems Affected" />
     </head>
