@@ -75,7 +75,7 @@ public class IconTag extends TagSupport {
         icons.put("header-file", "fa fa-file-text-o");
         icons.put("header-folder", "fa fa-folder-open-o");
         icons.put("header-globe", "fa fa-globe");
-        icons.put("header-help", "fa fa-question-circle");
+        icons.put("header-help", "fa fa-question-circle spacewalk-help-link");
         icons.put("header-info", "fa fa-info-circle");
         icons.put("header-kickstart", "fa fa-rocket");
         icons.put("header-list", "fa fa-list");
@@ -115,7 +115,9 @@ public class IconTag extends TagSupport {
         icons.put("item-disabled", "fa fa-circle-o text-muted");
         icons.put("item-download", "fa fa-download");
         icons.put("item-download-csv", "fa spacewalk-icon-download-csv");
+        icons.put("item-edit", "fa fa-edit");
         icons.put("item-enabled", "fa fa-check text-success");
+        icons.put("item-search", "fa fa-eye");
         icons.put("item-ssm-add", "fa fa-plus-circle");
         icons.put("item-ssm-del", "fa fa-minus-circle");
         icons.put("item-upload", "fa fa-upload");
@@ -128,18 +130,22 @@ public class IconTag extends TagSupport {
         icons.put("monitoring-warn",
                   "fa fa-1-5x spacewalk-icon-monitoring-warning text-warning");
         icons.put("nav-bullet", "fa fa-caret-right");
+        icons.put("nav-page-first", "fa fa-angle-double-left");
+        icons.put("nav-page-last", "fa fa-angle-double-right");
+        icons.put("nav-page-next", "fa fa-angle-right");
+        icons.put("nav-page-prev", "fa fa-angle-left");
         icons.put("nav-right", "fa fa-arrow-right");
         icons.put("nav-up", "fa fa-caret-up");
         icons.put("sort-down", "fa fa-arrow-circle-down");
         icons.put("sort-up", "fa fa-arrow-circle-up");
         icons.put("system-crit", "fa fa-exclamation-circle fa-1-5x text-danger");
         icons.put("system-kickstarting", "fa fa-rocket fa-1-5x");
-        icons.put("system-locked", "fa fa-1-5x spacewalk-icon-locked-system");
+        icons.put("system-locked", "fa fa-lock fa-1-5x");
         icons.put("system-ok", "fa fa-check-circle fa-1-5x text-success");
         icons.put("system-physical", "fa fa-desktop fa-1-5x");
         icons.put("system-reboot", "fa fa-refresh");
-        icons.put("system-unentitled", "fa fa-1-5x spacewalk-icon-unentitled");
-        icons.put("system-unknown", "fa fa-1-5x spacewalk-icon-unknown-system");
+        icons.put("system-unentitled", "fa fa-times-circle fa-1-5x");
+        icons.put("system-unknown", "fa fa-question-circle fa-1-5x");
         icons.put("system-virt-guest", "fa fa-1-5x spacewalk-icon-virtual-guest");
         icons.put("system-virt-host", "fa fa-1-5x spacewalk-icon-virtual-host");
         icons.put("system-warn", "fa fa-exclamation-triangle fa-1-5x text-warning");
@@ -147,11 +153,28 @@ public class IconTag extends TagSupport {
 
     /**
      * Constructor for Icon tag.
+     * @param typeIn the type of the icon
+     * @param titleIn the title of the icon
+     */
+    public IconTag(String typeIn, String titleIn) {
+        super();
+        type = typeIn;
+        title = titleIn;
+    }
+
+    /**
+     * Constructor for Icon tag.
+     * @param typeIn the type of the icon
+     */
+    public IconTag(String typeIn) {
+        this(typeIn, (String) null);
+    }
+
+    /**
+     * Constructor for Icon tag.
      */
     public IconTag() {
-        super();
-        type = null;
-        title = null;
+        this((String) null, (String) null);
     }
 
     /**
@@ -184,6 +207,16 @@ public class IconTag extends TagSupport {
      */
     public String getTitle() {
         return LocalizationService.getInstance().getMessage(title);
+    }
+
+    /**
+     * Return just the HTML
+     * @return String that contains generated HTML
+     */
+    public String render() {
+        String result = renderStartTag();
+        release();
+        return result;
     }
 
     /**

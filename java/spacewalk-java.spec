@@ -28,7 +28,7 @@ Name: spacewalk-java
 Summary: Spacewalk Java site packages
 Group: Applications/Internet
 License: GPLv2
-Version: 2.1.135
+Version: 2.1.144
 Release: 1%{?dist}
 URL:       https://fedorahosted.org/spacewalk
 Source0:   https://fedorahosted.org/releases/s/p/spacewalk/%{name}-%{version}.tar.gz 
@@ -801,6 +801,77 @@ fi
 %{jardir}/postgresql-jdbc.jar
 
 %changelog
+* Tue Feb 04 2014 Stephen Herr <sherr@redhat.com> 2.1.144-1
+- 1061425 - Improve package search performance
+- 1061425 - query performance improvement for package search
+- Fixed typo
+- Use prepared confirm page
+- Add confirmation page to ssm/ListPatches
+- Needed elaborable return of ErrataManager.lookupErrataListFromSet
+- Whitespace fix
+- Remove unnecessary code after extraction
+- Extracted "list systems in ssm related to errata" into separate action
+- Change misleading variable name
+- Extract actual handling of action into separate method
+- Use some idioms to improve code readability
+- Replace explicit iterator with enhanced for
+
+* Tue Feb 04 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.143-1
+- restored Monitoring Scout label
+- removed unnecessary spacing and restored left side labels
+- unify probe detail page look
+
+* Tue Feb 04 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.142-1
+- swapping struts tag with input html to allow the use of the placeholder
+- perform password validation within the java class
+- removing obsolete code related to PLACEHOLDER_PASSWORD
+
+* Mon Feb 03 2014 Tomas Lestach <tlestach@redhat.com> 2.1.141-1
+- enable creating externally authenticated users in organization according to
+  REMOTE_USER_ORGUNIT
+- do not close last row of tables with two </tr> tags
+- make search work when search form is submitted by enter
+- make ExpansionDecorator work again
+- new icon for item edit
+
+* Fri Jan 31 2014 Tomas Lestach <tlestach@redhat.com> 2.1.140-1
+- allow deleting disabled users
+- return default string even if input string is null
+- move shared methods to loginhelper
+- introduce LoginHelper
+- add externally authenticated user roles according to the external group to
+  roles mapping
+- externally authenticated user does not have to be in the default org
+- add external group delete page
+- add external group edit page
+- add external group to role mapping list page
+
+* Fri Jan 31 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.139-1
+- add special class to help links
+- use consistent set of icons for system status
+
+* Fri Jan 31 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.138-1
+- reuse IconTag for help links, item search and pagination icons
+- re-style kickstart creation wizard, 1st form
+
+* Thu Jan 30 2014 Stephen Herr <sherr@redhat.com> 2.1.137-1
+- 1059910 - create api for channel errata syncing, have clone-by-date call it
+- fix style on kickstart profile creation wizard + use rhn:toolbar
+- use rhn:toolbar for page headers
+- update copyright year in page footer in java
+- Removing unaesthetic spaces around dots in IPv4 address
+- Small code cleanup
+
+* Thu Jan 30 2014 Matej Kollar <mkollar@redhat.com> 2.1.136-1
+- Fixed ssm reboot scheduling.
+- Sometimes we don't want "add to ssm" option...
+- add message about system lock/unlock into ssm index
+- use icon for locked system
+- 1009396 - escape system name for ssm lock/unlock page
+- add defaultsort for extra packages page
+- add defaultSort for packages list/remove
+- add defaultSort to package list
+
 * Tue Jan 28 2014 Stephen Herr <sherr@redhat.com> 2.1.135-1
 - 1058761 - Update RHEL 7 VM memory requirements to 1024 MB
 - rendering the password strength meter

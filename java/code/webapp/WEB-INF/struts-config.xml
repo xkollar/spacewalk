@@ -320,6 +320,18 @@
         <form-bean name="extAuthForm"
                    type="com.redhat.rhn.frontend.struts.ScrubbingDynaActionForm">
             <form-property name="to_org" type="java.lang.String"/>
+            <form-property name="use_ou" type="java.lang.Boolean"/>
+        </form-bean>
+        <form-bean name="extGroupForm"
+                   type="com.redhat.rhn.frontend.struts.ScrubbingDynaActionForm">
+            <form-property name="extGroupLabel" type="java.lang.String"/>
+            <form-property name="role_satellite_admin" type="java.lang.Boolean"/>
+            <form-property name="role_org_admin" type="java.lang.Boolean"/>
+            <form-property name="selected_regular_roles" type="java.lang.String"/>
+        </form-bean>
+        <form-bean name="extGroupDeleteForm"
+                   type="com.redhat.rhn.frontend.struts.ScrubbingDynaActionForm">
+            <form-property name="submitted" type="java.lang.Boolean"/>
         </form-bean>
         <form-bean name="packageSearchForm"
                    type="com.redhat.rhn.frontend.struts.ScrubbingDynaActionForm">
@@ -1130,6 +1142,17 @@
       <form-property name="summary" type="java.lang.String"/>
       <form-property name="update" type="java.lang.String"/>
       <form-property name="submitted" type="java.lang.Boolean"/>
+    </form-bean>
+
+    <form-bean name="ssmRebootForm"
+               type="com.redhat.rhn.frontend.struts.ScrubbingDynaActionForm" >
+      <form-property name="submitted" type="java.lang.Boolean"/>
+      <form-property name="date_year"  type="java.lang.Integer"/>
+      <form-property name="date_month"  type="java.lang.Integer"/>
+      <form-property name="date_day"  type="java.lang.Integer"/>
+      <form-property name="date_hour"  type="java.lang.Integer"/>
+      <form-property name="date_minute"  type="java.lang.Integer"/>
+      <form-property name="date_am_pm"  type="java.lang.Integer"/>
     </form-bean>
 
     <form-bean name="ssmMigrateForm"
@@ -3611,7 +3634,7 @@
                  path="/systems/ssm/misc/Index.do" redirect="true"/>
     </action>
 
-        <action path="/systems/ssm/ListSystems"
+    <action path="/systems/ssm/ListSystems"
         scope="request"
         input="/WEB-INF/pages/ssm/systems/list.jsp"
         type="com.redhat.rhn.frontend.action.ssm.ListSystemsAction"
@@ -3623,6 +3646,17 @@
                  path="/systems/ssm/ListSystems.do" redirect="true"/>
      </action>
 
+    <action path="/systems/ssm/ErrataSystemsAffected"
+        scope="request"
+        name="SSMPatchListForm"
+        input="/WEB-INF/pages/ssm/systems/ssm-errata-systems-affected.jsp"
+        type="com.redhat.rhn.frontend.action.ssm.ErrataSystemsAffectedListAction"
+        className="com.redhat.rhn.frontend.struts.RhnActionMapping">
+        <set-property property="postRequiredIfSubmitted" value="true" />
+        <forward name="default"
+                 path="/WEB-INF/pages/ssm/systems/ssm-errata-systems-affected.jsp" />
+    </action>
+
     <action path="/systems/ssm/ListPatches"
         scope="request"
         name="SSMPatchListForm"
@@ -3633,7 +3667,22 @@
         <forward name="default"
                  path="/WEB-INF/pages/ssm/systems/ssm-errata.jsp" />
         <forward name="confirm"
-                 path="/WEB-INF/pages/ssm/ssmindex.jsp" />
+                 path="/systems/ssm/ListPatchesConfirm.do"
+                 redirect="true" />
+    </action>
+
+    <action path="/systems/ssm/ListPatchesConfirm"
+        scope="request"
+        name="SSMPatchListForm"
+        input="/WEB-INF/pages/ssm/systems/ssm-errata.jsp"
+        type="com.redhat.rhn.frontend.action.ssm.ErrataListConfirmAction"
+        className="com.redhat.rhn.frontend.struts.RhnActionMapping">
+        <set-property property="postRequiredIfSubmitted" value="true" />
+        <forward name="default"
+                 path="/WEB-INF/pages/ssm/systems/ssm-errata-confirm.jsp" />
+        <forward name="confirm"
+                 path="/systems/ssm/ListPatches.do"
+                 redirect="true" />
     </action>
 
     <action path="/systems/ssm/MigrateSystems"
@@ -5257,12 +5306,28 @@
             scope="request"
             input="/WEB-INF/pages/ssm/systems/misc/reboot-system.jsp"
             type="com.redhat.rhn.frontend.action.ssm.RebootSystemAction"
-            name="ssmPreferencesForm"
+            name="ssmRebootForm"
             className="com.redhat.rhn.frontend.struts.RhnActionMapping">
-        <forward name="confirm"
-                 path="/WEB-INF/pages/ssm/systems/misc/index.jsp" />
+        <set-property property="postRequiredIfSubmitted" value="true" />
         <forward name="default"
                  path="/WEB-INF/pages/ssm/systems/misc/reboot-system.jsp" />
+        <forward name="confirm"
+                 path="/systems/ssm/misc/RebootSystemConfirm.do"
+                 redirect="true" />
+    </action>
+
+    <action path="/systems/ssm/misc/RebootSystemConfirm"
+            scope="request"
+            input="/WEB-INF/pages/ssm/systems/misc/reboot-system-confirm.jsp"
+            type="com.redhat.rhn.frontend.action.ssm.RebootSystemConfirmAction"
+            name="ssmRebootForm"
+            className="com.redhat.rhn.frontend.struts.RhnActionMapping">
+        <set-property property="postRequiredIfSubmitted" value="true" />
+        <forward name="default"
+                 path="/WEB-INF/pages/ssm/systems/misc/reboot-system-confirm.jsp" />
+        <forward name="confirm"
+                 path="/systems/ssm/misc/RebootSystem.do"
+                 redirect="true" />
     </action>
 
         <action path="/systems/ssm/misc/Index"
@@ -5659,8 +5724,44 @@
       <forward name="default" path="/WEB-INF/pages/admin/multiorg/extauth.jsp" />
       <forward name="success"
                path="/admin/multiorg/ExternalAuthentication.do" redirect="true" />
-      <forward name="error"
-               path="/WEB-INF/pages/admin/multiorg/extauth.jsp" />
+    </action>
+
+    <action path="/admin/multiorg/ExtAuthRoleMapping"
+        scope="request"
+        input="/WEB-INF/pages/admin/multiorg/extauthroles.jsp"
+        type="com.redhat.rhn.frontend.action.multiorg.ExtAuthRoleMappingAction"
+        className="com.redhat.rhn.frontend.struts.RhnActionMapping">
+      <set-property property="postRequiredIfSubmitted" value="true" />
+      <set-property property="acls" value="user_role(satellite_admin)"/>
+      <forward name="default" path="/WEB-INF/pages/admin/multiorg/extauthroles.jsp" />
+      <forward name="success"
+               path="/admin/multiorg/EExtAuthRoleMapping.do" redirect="true" />
+    </action>
+
+    <action path="/admin/multiorg/ExtGroupDetails"
+        scope="request"
+        name="extGroupForm"
+        input="/WEB-INF/pages/admin/multiorg/extgroup_detail.jsp"
+        type="com.redhat.rhn.frontend.action.multiorg.ExtGroupDetailAction"
+        className="com.redhat.rhn.frontend.struts.RhnActionMapping">
+      <set-property property="postRequiredIfSubmitted" value="true" />
+      <set-property property="acls" value="user_role(satellite_admin)"/>
+      <forward name="default" path="/WEB-INF/pages/admin/multiorg/extgroup_detail.jsp" />
+      <forward name="success"
+               path="/admin/multiorg/ExtAuthRoleMapping.do" redirect="true" />
+    </action>
+
+    <action path="/admin/multiorg/ExtGroupDelete"
+        scope="request"
+        name="extGroupDeleteForm"
+        input="/WEB-INF/pages/admin/multiorg/extgroup_delete.jsp"
+        type="com.redhat.rhn.frontend.action.multiorg.ExtGroupDeleteAction"
+        className="com.redhat.rhn.frontend.struts.RhnActionMapping">
+      <set-property property="postRequiredIfSubmitted" value="true" />
+      <set-property property="acls" value="user_role(satellite_admin)"/>
+      <forward name="default" path="/WEB-INF/pages/admin/multiorg/extgroup_delete.jsp" />
+      <forward name="success"
+               path="/admin/multiorg/ExtAuthRoleMapping.do" redirect="true" />
     </action>
 
     <action path="/multiorg/channels/OrgList"

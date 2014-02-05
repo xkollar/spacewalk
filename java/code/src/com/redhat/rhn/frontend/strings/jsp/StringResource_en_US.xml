@@ -68,6 +68,12 @@
       </group>
       <!-- Generic buttons. The intent is that these can be reused across multiple pages.-->
       <group>
+        <trans-unit id="button.create">
+          <source>Create</source>
+          <context-group name="ctx">
+            <context context-type="sourcefile">/rhn/profiles/Details</context>
+          </context-group>
+        </trans-unit>
         <trans-unit id="button.update">
           <source>Update</source>
           <context-group name="ctx">
@@ -1150,7 +1156,7 @@
       </trans-unit>
       <!-- footer.jsp -->
       <trans-unit id="footer.jsp.copyright">
-        <source>Copyright &amp;#169; 2002&amp;#x2012;13 Red Hat, Inc. All rights reserved.</source>
+        <source>Copyright &amp;#169; 2002&amp;#x2012;14 Red Hat, Inc. All rights reserved.</source>
         <context-group name="ctx">
           <context context-type="sourcefile">./includes/footer.jsp</context>
         </context-group>
@@ -1653,6 +1659,12 @@ button below, and &lt;b&gt;will be unable to log back in&lt;/b&gt;.</source>
       </trans-unit>
       <trans-unit id="activelist.jsp.noUsers">
         <source>No active users.</source>
+        <context-group name="ctx">
+          <context context-type="sourcefile">/rhn/users/ActiveList</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="extauth.jsp.noGroups">
+        <source>No external groups.</source>
         <context-group name="ctx">
           <context context-type="sourcefile">/rhn/users/ActiveList</context>
         </context-group>
@@ -4428,11 +4440,11 @@ value for this entitlement, excluding the default organization's consumption.</s
         <trans-unit id="ssm.overview.misc.migrate">
           <source>&lt;a href="/rhn/systems/ssm/MigrateSystems.do"&gt;Migrate&lt;/a&gt; systems to another organization</source>
         </trans-unit>
+        <trans-unit id="ssm.overview.misc.lock">
+          <source>&lt;a href="/rhn/systems/ssm/misc/LockUnlockSystem.do"&gt;Lock/unlock&lt;/a&gt; systems</source>
+        </trans-unit>
         <trans-unit id="ssm.overview.misc.scap">
           <source>&lt;a href="/rhn/systems/ssm/audit/ScheduleXccdf.do"&gt;Audit&lt;/a&gt; systems with OpenSCAP</source>
-        </trans-unit>
-        <trans-unit id="ssm.errata.serverlist.return">
-          <source>Back to errata</source>
         </trans-unit>
         <trans-unit id="ssm.errata.message.scheduled">
           <source>Errata updates &lt;a href="/rhn/schedule/PendingActions.do"&gt;scheduled&lt;/a&gt; at {0}.</source>
@@ -4655,11 +4667,20 @@ value for this entitlement, excluding the default organization's consumption.</s
         <trans-unit id="ssm.misc.reboot.operationname">
           <source>Schedule Systems Reboot</source>
         </trans-unit>
-        <trans-unit id="ssm.misc.reboot.message.success.default">
-          <source>Systems reboot has been scheduled.</source>
+        <trans-unit id="ssm.misc.reboot.message.success.singular">
+          <source>{0} system reboot has been scheduled.</source>
+        </trans-unit>
+        <trans-unit id="ssm.misc.reboot.message.success.plural">
+          <source>{0} systems reboot has been scheduled.</source>
         </trans-unit>
         <trans-unit id="ssm.misc.reboot.message.error.noselect">
           <source>Please select at least one system for reboot.</source>
+        </trans-unit>
+        <trans-unit id="ssm.misc.reboot.no-system">
+          <source>There are no selected systems.</source>
+        </trans-unit>
+        <trans-unit id="ssm.misc.reboot.confirm">
+          <source>Confirm</source>
         </trans-unit>
         <trans-unit id="ssm.misc.lockunlock.tabtitle">
           <source>Lock/Unlock</source>
@@ -5081,6 +5102,12 @@ value for this entitlement, excluding the default organization's consumption.</s
           <context context-type="sourcefile">/rhn/systems/SystemGroupList</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="extgrouplist.jsp.name">
+        <source>External Group Name</source>
+        <context-group name="ctx">
+          <context context-type="sourcefile">/rhn/systems/SystemGroupList</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="grouplist.jsp.status">
         <source>Updates</source>
         <context-group name="ctx">
@@ -5289,7 +5316,7 @@ value for this entitlement, excluding the default organization's consumption.</s
           <source>The following errata apply to one or more of the systems in this group.</source>
         </trans-unit>
         <trans-unit id="systemgroup.errata-systems-affected.title">
-          <source>Systems Addected By {0} - {1}</source>
+          <source>Systems Affected By {0} - {1}</source>
         </trans-unit>
         <trans-unit id="systemgroup.errata-systems-affected.summary">
           <source>Below is a list of the systems in the {0} group which are affected by this erratum.</source>
@@ -8385,6 +8412,30 @@ Please note that some manual configuration of these scripts may still be require
       </trans-unit>
       <trans-unit id="org.specific">
         <source>Organization Specific</source>
+      </trans-unit>
+      <trans-unit id="extgroup.jsp.header">
+        <source>External Group to Roles Mapping</source>
+      </trans-unit>
+      <trans-unit id="extgroups.jsp.header">
+        <source>External Groups</source>
+      </trans-unit>
+      <trans-unit id="extgroups.jsp.summary">
+        <source>Externally authenticated users may have set external (e.g. LDAP) groups. According to these groups the user will get assigned additional @@PRODUCT_NAME@@ roles.</source>
+      </trans-unit>
+      <trans-unit id="extgroup.jsp.summary">
+        <source>Define what @@PRODUCT_NAME@@ roles shall be assigned to externally authenticated users with specified group set.</source>
+      </trans-unit>
+      <trans-unit id="extgroup.jsp.create">
+        <source>Create New External Group</source>
+      </trans-unit>
+      <trans-unit id="extgroup.jsp.update">
+        <source>Update External Group - {0}</source>
+      </trans-unit>
+      <trans-unit id="extgroup.jsp.delete">
+        <source>Delete External Group - {0}</source>
+      </trans-unit>
+      <trans-unit id="extgroup.jsp.delete.summary">
+        <source>Following External Group will be deleted.</source>
       </trans-unit>
       <trans-unit id="distchannelmap.jsp.create">
         <source>Create New Distribution Channel Map</source>
@@ -15067,6 +15118,18 @@ any of these revisions.  Are you sure you want to do this?</source>
         <trans-unit id="ssm.patches.list.summary">
           <source>The errata below apply to one or more of your selected systems.</source>
         </trans-unit>
+        <trans-unit id="ssm.errata-relevant-systems.title">
+          <source>Systems in System Set Manager Affected By {0} - {1}</source>
+        </trans-unit>
+        <trans-unit id="ssm.errata-relevant-systems.summary">
+          <source>Below is a list of the systems in the system set manager which are affected by this erratum.</source>
+        </trans-unit>
+        <trans-unit id="ssm.errata-apply-confirm.title">
+          <source>Relevant Errata Confirm</source>
+        </trans-unit>
+        <trans-unit id="ssm.errata-apply-confirm.summary">
+          <source>The errata below will be applied to listed systems.</source>
+        </trans-unit>
       </group>
       <trans-unit id="ssm.operations.actionchaindetails.schedulesuccess">
         <source>Action chain "{0}" has been successfully scheduled at "{1}".</source>
@@ -19845,6 +19908,36 @@ given channel.</source>
         <source>Confirm Channel Sharing Modification</source>
         <context-group name="ctx">
           <context context-type="sourcefile">/rhn/channels/manage/ConfirmPrivate.do</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="extauth.org.message">
+        <source>Even externally authenticated users need to be created within @@PRODUCT_NAME@@. You may specify, in what organization new users shall be created. An option is to use the Org. Unit set on IPA server that has to match the organization name. Another option is to set a default organization, where all the newly created users will be created.</source>
+        <context-group name="ctx">
+          <context context-type="sourcefile">/rhn/admin/multiorg/ExternalAuthentication.do</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="extauth.org.useou">
+        <source>Use organization unit name passed from IPA</source>
+        <context-group name="ctx">
+          <context context-type="sourcefile">/rhn/admin/multiorg/ExternalAuthentication.do</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="extauth.org.default">
+        <source>Default organization</source>
+        <context-group name="ctx">
+          <context context-type="sourcefile">/rhn/admin/multiorg/ExternalAuthentication.do</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="extauth.org.default.help">
+        <source>Used in case organization unit name passed from IPA isn't found or is disabled.</source>
+        <context-group name="ctx">
+          <context context-type="sourcefile">/rhn/admin/multiorg/ExternalAuthentication.do</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="extauth.user.create">
+        <source>New user creation</source>
+        <context-group name="ctx">
+          <context context-type="sourcefile">/rhn/admin/multiorg/ExternalAuthentication.do</context>
         </context-group>
       </trans-unit>
       <trans-unit id="bunch.edit.jsp.toolbar">

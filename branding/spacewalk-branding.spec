@@ -9,7 +9,7 @@
 %endif
 
 Name:       spacewalk-branding
-Version:    2.1.22
+Version:    2.1.25
 Release:    1%{?dist}
 Summary:    Spacewalk branding data
 
@@ -27,6 +27,7 @@ Requires:   httpd
 Requires:   bootstrap <= 3.0.0
 Requires:   font-awesome >= 4.0.0
 Requires:   roboto >= 1.2
+Requires: pwstrength-bootstrap
 
 %description
 Spacewalk specific branding, CSS, and images.
@@ -86,6 +87,22 @@ rm -rf %{buildroot}
 %doc LICENSE
 
 %changelog
+* Tue Feb 04 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.25-1
+- help links are already hidden via spacewalk-help-link class
+- move toolbar items right for all header levels
+
+* Fri Jan 31 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.24-1
+- add special class to help links
+- Revert "bootstrap tuning - style submit buttons"
+- style table for system comparsion
+- update copyright year in perl footer
+- highlight column by which is list sorted and hovered row
+
+* Wed Jan 29 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.23-1
+- add sort order icons and alphaResult icon
+- adding custom styles
+- removing old spacewalk css
+
 * Mon Jan 27 2014 Matej Kollar <mkollar@redhat.com> 2.1.22-1
 - New less file added to style Inputs. New less file added for the minor fixes
   of TB3 for spacewalk layout
