@@ -28,7 +28,7 @@ Name: spacewalk-java
 Summary: Spacewalk Java site packages
 Group: Applications/Internet
 License: GPLv2
-Version: 2.1.144
+Version: 2.1.146
 Release: 1%{?dist}
 URL:       https://fedorahosted.org/spacewalk
 Source0:   https://fedorahosted.org/releases/s/p/spacewalk/%{name}-%{version}.tar.gz 
@@ -801,6 +801,16 @@ fi
 %{jardir}/postgresql-jdbc.jar
 
 %changelog
+* Thu Feb 06 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.146-1
+- patch to handle systems registered with the --nohardware flag
+- Patch code to build against susestudio-java-client version 0.1.4
+- render <thead> and <tr> in UnpagedListDisplayTag
+
+* Wed Feb 05 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.145-1
+- page layout fixes
+- Generalized code so it can be used both with and without selectable column
+- Generification of Listable
+
 * Tue Feb 04 2014 Stephen Herr <sherr@redhat.com> 2.1.144-1
 - 1061425 - Improve package search performance
 - 1061425 - query performance improvement for package search
