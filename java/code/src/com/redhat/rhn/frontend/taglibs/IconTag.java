@@ -140,6 +140,8 @@ public class IconTag extends TagSupport {
         icons.put("system-virt-host", "fa fa-1-5x spacewalk-icon-virtual-host");
         icons.put("system-warn", "fa fa-exclamation-triangle fa-1-5x text-warning");
         icons.put("system-bootstrap", "fa fa-square-o fa-1-5x");
+        icons.put("system-bare-metal-legend", "fa fa-1-5x spacewalk-icon-bare-metal");
+        icons.put("system-bare-metal", "fa spacewalk-icon-bare-metal");
     }
 
     /**
