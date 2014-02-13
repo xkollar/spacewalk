@@ -61,6 +61,7 @@ IS
         consenting_user         NUMBER;
         allowed                 number := 0;
         is_fve                  CHAR(1) := 'N';
+        update_lock             number;
     BEGIN
         if user_id_in is not null then
             allowed := rhn_channel.user_role_check(channel_id_in, user_id_in, 'subscribe');
@@ -154,6 +155,13 @@ IS
                 from    rhnChannel c
                 where   c.id = channel_id_in
             );
+
+            select 1
+              into update_lock
+              from rhnServerNeededCache
+             where server_id = server_id_in
+               for update;
+
             UPDATE rhnServer SET channels_changed = current_timestamp WHERE id = server_id_in;
             INSERT INTO rhnServerChannel (server_id, channel_id, is_fve) VALUES (server_id_in, channel_id_in, is_fve);
 			IF recalcfamily_in > 0
@@ -452,6 +460,7 @@ IS
         server_org_id_val       NUMBER;
         available_subscriptions NUMBER; 
         server_already_in_chan  BOOLEAN;
+        update_lock             number;
         cursor  channel_family_is_proxy(channel_family_id_in in number) is
                 select  1
                 from    rhnChannelFamily
@@ -512,6 +521,12 @@ IS
           from    rhnChannel c
           where   c.id = channel_id_in
       );
+
+        select 1
+          into update_lock
+          from rhnServerNeededCache
+         where server_id = server_id_in
+           for update;
 
         UPDATE rhnServer SET channels_changed = current_timestamp WHERE id = server_id_in;
    end if;
@@ -1209,6 +1224,7 @@ IS
                 select sc.server_id as id
                   from rhnServerChannel sc
                  where sc.channel_id = channel_id_in
+                 order by id asc
       ) loop
          rhn_server.update_needed_cache(server.id);
          commit;

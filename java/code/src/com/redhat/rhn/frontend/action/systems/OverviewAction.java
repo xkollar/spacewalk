@@ -33,6 +33,9 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * OverviewAction
  * @version $Rev$
@@ -40,6 +43,29 @@ import javax.servlet.http.HttpServletResponse;
 public class OverviewAction extends RhnListAction {
 
     private static Logger log = Logger.getLogger(OverviewAction.class);
+
+    // redirect_url can send us to the Java side or the Perl side, and *nowhere else*
+    private static final String[] ALLOWED_REDIRECTS = { "/rhn/", "/network/" };
+
+    //
+    // Only follow redirects if they're "inside" the app (close open-redirecting)
+    // Make sure to ignore anything after a <CR><LF> in the string (close header-injection)
+    //
+    private String getLegalReturnUrl(String proposedRedirect) {
+        if (proposedRedirect == null) {
+            return null;
+        }
+
+        for (String dest : ALLOWED_REDIRECTS) {
+            if (proposedRedirect.startsWith(dest)) {
+                // Punt if any control-characters found
+                Matcher m = Pattern.compile("\\p{Cntrl}").matcher(proposedRedirect);
+                boolean ctrlFound = m.find();
+                return ctrlFound ? null : proposedRedirect;
+            }
+        }
+        return null;
+    }
 
     /** {@inheritDoc} */
     public ActionForward execute(ActionMapping mapping,
@@ -64,7 +90,7 @@ public class OverviewAction extends RhnListAction {
          */
         String emptySet = request.getParameter("empty_set");
         String setLabel = request.getParameter("set_label");
-        String returnUrl = request.getParameter("return_url");
+        String returnUrl = getLegalReturnUrl(request.getParameter("return_url"));
         if (emptySet != null && emptySet.equals("true")) {
             //Set defaults if needed.
             if (setLabel == null) {
