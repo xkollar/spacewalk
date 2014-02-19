@@ -9,7 +9,7 @@
 %endif
 
 Name:       spacewalk-branding
-Version:    2.1.28
+Version:    2.1.33
 Release:    1%{?dist}
 Summary:    Spacewalk branding data
 
@@ -23,11 +23,13 @@ BuildArch:  noarch
 BuildRequires: java-devel >= 1.5.0
 BuildRequires: nodejs-less
 BuildRequires: bootstrap-less <= 3.0.0
-Requires:   httpd
-Requires:   bootstrap <= 3.0.0
-Requires:   font-awesome >= 4.0.0
-Requires:   roboto >= 1.2
-Requires: pwstrength-bootstrap
+Requires:      httpd
+Requires:      bootstrap <= 3.0.0
+Requires:      bootstrap-datepicker
+Requires:      font-awesome >= 4.0.0
+Requires:      jquery-timepicker >= 1.3.2
+Requires:      roboto >= 1.2
+Requires:      pwstrength-bootstrap
 
 %description
 Spacewalk specific branding, CSS, and images.
@@ -87,6 +89,22 @@ rm -rf %{buildroot}
 %doc LICENSE
 
 %changelog
+* Tue Feb 18 2014 Matej Kollar <mkollar@redhat.com> 2.1.33-1
+- The fix should have been the other way round...
+
+* Tue Feb 18 2014 Matej Kollar <mkollar@redhat.com> 2.1.32-1
+- do not use fixed size
+- add space after alphabar result sign
+
+* Mon Feb 17 2014 Tomas Kasparek <tkasparek@redhat.com> 2.1.31-1
+- 1064573 - sidenav css should respect valid html constructions
+
+* Sat Feb 15 2014 Matej Kollar <mkollar@redhat.com> 2.1.30-1
+- Use jquery-timepicker-1.3.3
+
+* Fri Feb 14 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.29-1
+- datepicker needs bootstrap-datepicker and jquery-timepicker
+
 * Fri Feb 14 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.28-1
 - simplify datepicker layout and unify look of date/time part
 - Introduce a date-time picker.

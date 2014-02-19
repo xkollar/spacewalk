@@ -28,7 +28,7 @@ Name: spacewalk-java
 Summary: Spacewalk Java site packages
 Group: Applications/Internet
 License: GPLv2
-Version: 2.1.151
+Version: 2.1.155
 Release: 1%{?dist}
 URL:       https://fedorahosted.org/spacewalk
 Source0:   https://fedorahosted.org/releases/s/p/spacewalk/%{name}-%{version}.tar.gz 
@@ -801,6 +801,34 @@ fi
 %{jardir}/postgresql-jdbc.jar
 
 %changelog
+* Tue Feb 18 2014 Matej Kollar <mkollar@redhat.com> 2.1.155-1
+- correct grammar
+- Fixing unclosed hr
+- Fixing unclosed br
+- Fixing unclosed meta
+- Simple attempt to find problematic things in jsps
+- don't add &amp; twice to the parameters of the url
+
+* Mon Feb 17 2014 Matej Kollar <mkollar@redhat.com> 2.1.154-1
+- 1064573 - make sidenav html valid
+
+* Mon Feb 17 2014 Matej Kollar <mkollar@redhat.com> 2.1.153-1
+- Remove unused context store
+- Use .toHashCode
+- removing unnecessary overriding attribute
+- removing unnecessary overriding attribute
+- removing unnecessary overriding attribute
+- removing unnecessary overriding attribute
+- removing unnecessary overriding attribute
+- remove unnecessary cast
+- remove unnecessary cast
+- remove unnecessary else statement
+- remove unnecessary else statement
+
+* Fri Feb 14 2014 Stephen Herr <sherr@redhat.com> 2.1.152-1
+- 1065483 - SSM package upgrades should not install packages if not an upgrade
+- Proper TB3 column class
+
 * Fri Feb 14 2014 Michael Mraka <michael.mraka@redhat.com> 2.1.151-1
 - fixed errors in date/time format conversions
 - Introduce a date-time picker.
